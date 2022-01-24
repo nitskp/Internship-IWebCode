@@ -51,26 +51,23 @@
     display: none;
 }
 
-#dropdown_1:hover + .navbar__dropdown{
+.navbar__item:hover .navbar__dropdown{
     display: block;
 }
 
-#dropdown_1:focus + .navbar__dropdown{
-    display: block;
-}
+
 
 .dropdown__side{
+    background: white;
+    list-style: none;
+    padding: 0;
     position: absolute;
     top: 50rem;
     left: 170rem;
     display: none;
 }
 
-#dropdown_2:hover + .dropdown__side{
-    display: block;
-}
-
-#dropdown_2:focus + .dropdown__side{
+.dropdown__hover:hover .dropdown__side{
     display: block;
 }
 

@@ -23,7 +23,7 @@ const Navbar = () => {
               {" "}
               Dropdown &#8964;
             </Link>
-            <div id="dropdown_1">
+            
               <ul className="navbar__dropdown">
                 <li className="dropdown__item">
                   <Link to="/" className="navbar__link">
@@ -31,13 +31,13 @@ const Navbar = () => {
                     Menu One{" "}
                   </Link>
                 </li>
-                <li className="dropdown__item">
+                <li className="dropdown__item dropdown__hover">
                   <Link to="/" className="navbar__link">
                     {" "}
                     Menu Two &rsaquo;
                   </Link>
-                  <div id="dropdown_2">
-                    <ul className="navbar__dropdown dropdown__side">
+                  
+                    <ul className="dropdown__side">
                       <li className="dropdown__item">
                         <Link to="/" className="navbar__link">
                           Sub Menu One
@@ -54,7 +54,7 @@ const Navbar = () => {
                         </Link>
                       </li>
                     </ul>
-                  </div>
+                  
                 </li>
                 <li className="dropdown__item">
                   <Link to="/" className="navbar__link">
@@ -63,7 +63,7 @@ const Navbar = () => {
                   </Link>
                 </li>
               </ul>
-            </div>
+            
           </li>
 
           <li className="navbar__item">
