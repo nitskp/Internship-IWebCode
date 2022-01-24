@@ -1,0 +1,94 @@
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    font-size: 20rem;
+    background: transparent;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    /* background: greenyellow; */
+}
+
+.navbar__brand{
+    text-decoration: none;
+    color: white;
+    /* border: 1px solid red; */
+    padding: 20rem;
+    margin-left: 150rem;
+    font-weight: bold;
+}
+
+.navbar__list{
+    display: flex;
+    list-style: none;
+    justify-content: space-between;
+    /* border: solid 1px red; */
+    margin-right: 90rem;
+}
+
+.navbar__item{
+    padding: 10rem;
+    text-align: center;
+    /* border: green 1px solid; */
+}
+
+.navbar__link{
+    text-decoration: none;
+    color: white;
+    opacity: 0.7;
+}
+
+.navbar__link:hover{
+    opacity: 1;
+}
+
+.navbar__dropdown{
+    background: white;
+    list-style: none;
+    padding: 0;
+    position: relative;
+    top: 10rem;
+    display: none;
+}
+
+#dropdown_1:hover + .navbar__dropdown{
+    display: block;
+}
+
+#dropdown_1:focus + .navbar__dropdown{
+    display: block;
+}
+
+.dropdown__side{
+    position: absolute;
+    top: 50rem;
+    left: 170rem;
+    display: none;
+}
+
+#dropdown_2:hover + .dropdown__side{
+    display: block;
+}
+
+#dropdown_2:focus + .dropdown__side{
+    display: block;
+}
+
+.dropdown__item{
+    padding: 10rem;
+    /* border: red 1px solid; */
+    margin: 0;
+    width: 150rem;
+}
+
+.dropdown__item > .navbar__link{
+    color: black;
+}
+
+.dropdown__item > .navbar__link:hover{
+    color: red;
+}
+
+.navbar__link--active{
+    opacity: 1;
+}

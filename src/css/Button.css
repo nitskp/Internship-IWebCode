@@ -1,0 +1,10 @@
+.btn button{
+    width: 160rem;
+    height: 50rem;
+    padding: 12rem 30rem;
+    background-color: red;
+    border-radius: 5rem;
+    border: red;
+    color: white;
+    font-size: 18;
+}

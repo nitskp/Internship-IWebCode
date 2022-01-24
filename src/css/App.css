@@ -1,0 +1,14 @@
+html, body{
+  font-size: 1px;
+  margin: 0;
+  padding: 0;
+  background: #458474;
+}
+
+.row{
+  display: flex;
+}
+.container{
+  display: flex;
+  flex-direction: column;
+}
