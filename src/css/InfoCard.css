@@ -1,7 +1,18 @@
+.info__icon{
+    color: white;
+    margin-top: 50px;
+}
+
 .info__heading{
-    font-size: 20rem;
+    font-size: 25px;
+    color: white;
+    padding: 30px;
+    padding-bottom: 0;
 }
 
 .info__text{
-    font-size: 16rem;
+    font-size: 15px;
+    color: white;
+    opacity: 0.5;
+    margin: 0 25px;
 }

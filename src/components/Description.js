@@ -1,17 +1,18 @@
 import React from "react";
 import Button from "./Button";
-import "../css/Description.css"
+import "../css/Description.css";
 
-const Description = () => {
+const Description = (props) => {
+  const descriptionHeading = props.descriptionHeading;
+  const descriptionText = props.descriptionText;
+  const buttonText = props.buttonText;
   return (
-    <div className="info">
-      <h1 className="info__heading">Let's grow your business with us</h1>
-      <p className="info__text">
-        Sapiente, assumenda suscipit autem ab expedita dignissimos, corrupti
-        iusto nobis ex aperiam cumque reprehenderit, saepe culpa qui eos ullam
-        minima quo, consequuntur.
+    <div className="description">
+      <h1 className="description__heading">{descriptionHeading}</h1>
+      <p className="description__text">
+        {descriptionText}
       </p>
-      <Button buttonText='Get in Touch'/>
+        <Button buttonText={buttonText} />
     </div>
   );
 };

@@ -1,0 +1,23 @@
+.getting-started__heading{
+    font-size: 30px;
+    font-weight: bolder;
+}
+
+.getting-started__text{
+    font-size: 20px;
+}
+
+.getting-started-description{
+    padding-top: 70px;
+    padding-left: 100px;
+}
+
+.getting-started__list{
+    list-style: none;
+    padding-left: 0;
+}
+.getting-started__list li::before{
+    content: '\2713';
+    color: red;
+    padding-right: 5px;
+}

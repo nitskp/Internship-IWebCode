@@ -4,98 +4,94 @@ import "../css/Navbar.css";
 
 const Navbar = () => {
   return (
-    <header>
-      <nav className="navbar">
-        <Link to="/" className="navbar__brand">
+    <nav className="navbar navbar-expand-lg navbar-light bg-transparent">
+      <div className="container-fluid">
+        <Link className="navbar-brand" to="/">
           Impact
         </Link>
+        <button
+          className="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span className="navbar-toggler-icon"></span>
+        </button>
+        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul className="navbar-nav mb-2 mb-lg-0">
+            <li className="nav-item">
+              <Link className="nav-link active" to="/">
+                Home
+              </Link>
+            </li>
 
-        <ul className="navbar__list">
-          <li className="navbar__item">
-            <Link className="navbar__link navbar__link--active" to="/">
-              {" "}
-              Home{" "}
-            </Link>
-          </li>
-
-          <li className="navbar__item">
-            <Link className="navbar__link" to="/">
-              {" "}
-              Dropdown &#8964;
-            </Link>
-            
-              <ul className="navbar__dropdown">
-                <li className="dropdown__item">
-                  <Link to="/" className="navbar__link">
-                    {" "}
-                    Menu One{" "}
+            <li className="nav-item dropdown">
+              <Link
+                className="nav-link dropdown-toggle"
+                to="/"
+                id="navbarDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Dropdown
+              </Link>
+              <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li>
+                  <Link className="dropdown-item" to="/">
+                    Menu One
                   </Link>
                 </li>
-                <li className="dropdown__item dropdown__hover">
-                  <Link to="/" className="navbar__link">
-                    {" "}
+                <li className="dropdown-hover">
+                  <Link className="dropdown-item" to="/" >
                     Menu Two &rsaquo;
                   </Link>
-                  
-                    <ul className="dropdown__side">
-                      <li className="dropdown__item">
-                        <Link to="/" className="navbar__link">
-                          Sub Menu One
-                        </Link>
-                      </li>
-                      <li className="dropdown__item">
-                        <Link to="/" className="navbar__link">
-                          Sub Menu Two
-                        </Link>
-                      </li>
-                      <li className="dropdown__item">
-                        <Link to="/" className="navbar__link">
-                          Sub Menu Three
-                        </Link>
-                      </li>
-                    </ul>
-                  
+                  <ul className="dropdown-list">
+                    <li>Sub Menu 1</li>
+                    <li>Sub Menu 2</li>
+                    <li>Sub Menu 3</li>
+                  </ul>
                 </li>
-                <li className="dropdown__item">
-                  <Link to="/" className="navbar__link">
-                    {" "}
-                    Menu Three{" "}
+                
+                <li>
+                  <Link className="dropdown-item" to="/">
+                    Menu Three
                   </Link>
                 </li>
               </ul>
+            </li>
+
+            <li className="nav-item">
+              <Link className="nav-link" to="/">
+                Services
+              </Link>
+            </li>
+
+            <li className="nav-item">
+              <Link className="nav-link" to="/">
+                Blog
+              </Link>
+            </li>
+
+            <li className="nav-item">
+              <Link className="nav-link" to="/">
+                About
+              </Link>
+            </li>
             
-          </li>
-
-          <li className="navbar__item">
-            <Link className="navbar__link" to="/">
-              {" "}
-              Services{" "}
-            </Link>
-          </li>
-
-          <li className="navbar__item">
-            <Link className="navbar__link" to="/">
-              {" "}
-              Blog{" "}
-            </Link>
-          </li>
-
-          <li className="navbar__item">
-            <Link className="navbar__link" to="/">
-              {" "}
-              About{" "}
-            </Link>
-          </li>
-
-          <li className="navbar__item">
-            <Link className="navbar__link" to="/">
-              {" "}
-              Contact Us{" "}
-            </Link>
-          </li>
-        </ul>
-      </nav>
-    </header>
+            <li className="nav-item">
+              <Link className="nav-link" to="/">
+                Contact Us
+              </Link>
+            </li>
+          </ul>
+          
+        </div>
+      </div>
+    </nav>
   );
 };
 

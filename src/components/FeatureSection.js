@@ -1,11 +1,62 @@
 import React from "react";
+import Description from "./Description";
+import person1 from "../assets/imgs/persons-group-1.png";
+import person2 from "../assets/imgs/persons-group-2.png";
+import ImageContainer from "./ImageContainer";
+import InfoCard from "./InfoCard";
+import "../css/FeatureSection.css";
 
-const FeatureSection = () => {
+const FeatureSection = (props) => {
+  //data
+  const infoHeading1 = "Design";
+  const infoText =
+    "Sapiente, assumenda suscipit autem ab expedita dignissimos, corrupti iusto nobis ex aperiam cumque reprehenderit, saepe culpa qui eos ullam minima quo, consequuntur.";
+  const infoHeading2 = "Applications";
+  const infoHeading3 = "eCommerce";
+  const layerIcon = "fas fa-layer-group fa-2x";
+  const phoneIcon = "fas fa-laptop fa-2x";
+  const bagIcon = "fas fa-shopping-bag fa-2x";
+  const descriptionHeading = "Let's growth your business with us";
+  const descriptionText =
+    "Sapiente, assumenda suscipit autem ab expedita dignissimos, corrupti iusto nobis ex aperiam cumque reprehenderit, saepe culpa qui eos ullam minima quo, consequuntur.";
+  const buttonText = "Get in Touch";
   return (
-    <div>
-      Forgot to use it. See it tomorrow. Also try to use props to pass child
-      component. Need to check Higher Order Compnents too.
-    </div>
+    <>
+      <div className="row feature-section__body">
+        <div className="col-lg-3">
+          <ImageContainer imageUrl={person1} altText="person1" />
+        </div>
+        <div className="col-lg-6">
+          <Description descriptionHeading={descriptionHeading} descriptionText={descriptionText} buttonText={buttonText}/>
+        </div>
+        <div className="col-lg-3">
+          <ImageContainer imageUrl={person2} altText="person2" />
+        </div>
+      </div>
+      <div className="row info-card">
+        <div className="col-lg">
+          <InfoCard
+            infoHeading={infoHeading1}
+            infoText={infoText}
+            infoIcon={layerIcon}
+          />
+        </div>
+        <div className="col-lg">
+          <InfoCard
+            infoHeading={infoHeading2}
+            infoText={infoText}
+            infoIcon={phoneIcon}
+          />
+        </div>
+        <div className="col-lg">
+          <InfoCard
+            infoHeading={infoHeading3}
+            infoText={infoText}
+            infoIcon={bagIcon}
+          />
+        </div>
+      </div>
+    </>
   );
 };
 

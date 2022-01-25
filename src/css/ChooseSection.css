@@ -1,0 +1,19 @@
+.choose-section__info .info__icon{
+    color: rgb(5, 5, 5);
+    margin-top: 50px;
+}
+
+.choose-section__info .info__heading{
+    font-size: 25px;
+    color: rgb(14, 13, 13);
+    padding: 30px;
+    padding-bottom: 0;
+}
+
+.choose-section__info .info__text{
+    font-size: 15px;
+    color: rgb(8, 8, 8);
+    opacity: 0.5;
+    margin: 0 25px;
+}
+

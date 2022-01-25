@@ -1,14 +1,24 @@
-.info__heading{
-    font-size: 40rem;
+.description__heading{
+    font-size: 40px;
+    color: white;
+    padding: 30px;
+    text-align: center;
 }
 
-.info__text{
-    font-size: 20rem;
+.description__text{
+    font-size: 20px;
+    color: white;
+    opacity: 0.7;
+    margin: 0 50px;
+    margin-bottom: 50px;
+    text-align: center;
 }
 
-.info{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 50rem;
+.description{
+    text-align: center;
+}
+
+.description >.btn-danger:hover{
+    background: transparent;
+    border: white;
 }

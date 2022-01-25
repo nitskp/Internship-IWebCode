@@ -1,91 +1,53 @@
-.navbar{
-    display: flex;
-    justify-content: space-between;
-    font-size: 20rem;
-    background: transparent;
-    width: 100vw;
+@media (min-width: 992px){
+    .navbar-expand-lg .navbar-collapse{
+        justify-content: right;
+    }
+    .dropdown-hover:hover .dropdown-list{
+        position: absolute;
+        top: 40px;
+        left: 159px;
+        border: rgb(219, 218, 218) solid 1px;
+    }
+
+}
+
+.dropdown-list{
+    list-style-type: none;
+    display: none;
+}
+
+.dropdown-hover:hover .dropdown-list{
+    display: block;
+}
+
+.dropdown-list li{
+    padding: 10px;
+    min-width: 120px;
+    background-color: white;
     margin: 0;
-    padding: 0;
-    /* background: greenyellow; */
 }
 
-.navbar__brand{
-    text-decoration: none;
+.dropdown-list li:hover{
+    background: whitesmoke;
+}
+
+.navbar .navbar-brand{
     color: white;
-    /* border: 1px solid red; */
-    padding: 20rem;
-    margin-left: 150rem;
     font-weight: bold;
+    font-size: 25px;
 }
 
-.navbar__list{
-    display: flex;
-    list-style: none;
-    justify-content: space-between;
-    /* border: solid 1px red; */
-    margin-right: 90rem;
-}
-
-.navbar__item{
-    padding: 10rem;
-    text-align: center;
-    /* border: green 1px solid; */
-}
-
-.navbar__link{
-    text-decoration: none;
+.navbar-light .navbar-nav .nav-link{
     color: white;
     opacity: 0.7;
 }
 
-.navbar__link:hover{
+.navbar-light .navbar-nav .nav-link:hover{
     opacity: 1;
+    color: white;
 }
 
-.navbar__dropdown{
-    background: white;
-    list-style: none;
-    padding: 0;
-    position: relative;
-    top: 10rem;
-    display: none;
-}
-
-.navbar__item:hover .navbar__dropdown{
-    display: block;
-}
-
-
-
-.dropdown__side{
-    background: white;
-    list-style: none;
-    padding: 0;
-    position: absolute;
-    top: 50rem;
-    left: 170rem;
-    display: none;
-}
-
-.dropdown__hover:hover .dropdown__side{
-    display: block;
-}
-
-.dropdown__item{
-    padding: 10rem;
-    /* border: red 1px solid; */
-    margin: 0;
-    width: 150rem;
-}
-
-.dropdown__item > .navbar__link{
-    color: black;
-}
-
-.dropdown__item > .navbar__link:hover{
-    color: red;
-}
-
-.navbar__link--active{
+.navbar .navbar-nav .nav-item .active{
+    color: white;
     opacity: 1;
 }
