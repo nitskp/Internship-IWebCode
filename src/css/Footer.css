@@ -1,29 +1,61 @@
 .footer{
     color: white;
+    padding: 20px 60px;
+}
+
+.footer__info{
+    margin: 20px 60px;
+    margin-bottom: 60px;
+}
+
+.footer__about{
+    padding-right: 100px;
 }
 
 .footer__heading{
     margin-top: 40px;
-    font-size: 20px;
+    font-size: 18px;
 }
 
 .footer__text{
     margin-top: 20px;
     opacity: 0.5;
+    font-size: 14px;
 }
 
 .footer__icon-list {
     list-style: none;
     display: flex;
+    padding-left: 0;
+    margin-top: 30px;
+}
+
+.footer__icon-list li a{
+    color: red;
 }
 
 .footer__list {
     list-style: none;
     padding: 0;
+    margin-top: 20px;
 }
 
 .footer__list li{
     color: rgb(129, 127, 127);
+    padding: 7px 0px;
+}
+
+.footer__copyright{
+    color: rgb(129, 127, 127);
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.footer__copyright p{
+    color: rgb(129, 127, 127);;
+}
+.footer__copyright p a{
+    color: white;
 }
 
 .footer a{

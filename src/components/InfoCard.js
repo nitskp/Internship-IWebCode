@@ -13,8 +13,8 @@ const InfoCard = (props) => {
         </span>
       </div>
       <div className="col-11">
-        <h1 class="info__heading">{infoHeading}</h1>
-        <p class="info__text">{infoText}</p>
+        <h1 className="info__heading">{infoHeading}</h1>
+        <p className="info__text">{infoText}</p>
       </div>
     </div>
   );

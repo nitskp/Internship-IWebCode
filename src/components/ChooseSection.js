@@ -21,7 +21,7 @@ const ChooseSection = () => {
           <InfoCard infoHeading={chooseHeading2} infoIcon={userIcon} infoText={chooseText} />
         </div>
       </div>
-      <div className="col-lg-6">
+      <div className="col-lg-6 ">
         <ImageContainer imageUrl={aboutUs} altText="About us" size={{width: 630,height:460}}/>
       </div>
     </div>

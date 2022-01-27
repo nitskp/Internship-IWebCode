@@ -1,7 +1,18 @@
-.blue{
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300&family=Work+Sans:wght@300&display=swap');
+
+h1,h2,h3,h4{
+  font-family: 'Rubik', sans-serif;
+  font-weight: bold;
+}
+
+p,a{
+  font-family: 'Work Sans', sans-serif;;
+}
+
+.blue {
   background: #458474;
 }
 
-.container{
+.container {
   margin-bottom: 80px;
 }

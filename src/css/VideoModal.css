@@ -1,0 +1,56 @@
+.col{
+    width: 750;
+    height: 400;
+}
+.video-modal button{
+    position: relative;
+    text-align: center;
+    top: 270px;
+    left: 320px;
+    font-size: 13px;
+    background: white;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: white;
+    z-index: 2;
+}
+
+.video-modal__btn img{
+    filter: brightness(60%);
+    z-index: 1;
+}
+
+ .video-modal__content{
+    display: none; 
+    margin: 0 auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0);
+    z-index: 20;
+}
+
+
+
+.video-modal__content button{
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: white;
+    background: transparent;
+    border: transparent;
+    font-size: 30px;
+    margin-top: 40px;
+    margin-right: 40px;
+    margin-left: 900px;
+   
+}
+
+.video-modal__content .video{
+    margin: 0 auto;
+    margin-top: 150px;
+    margin-left: 500px;
+} 

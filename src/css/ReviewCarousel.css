@@ -1,3 +1,27 @@
-.carousel-inner{
-  margin: 0 auto;
+.review-carousel__btn{
+  background: transparent;
+  font-size: 50px;
+  margin-top: 100px;
+  border: 0;
+}
+
+.right-btn{
+  margin-left: 250px;
+}
+
+.review{
+  display: none;
+}
+
+.review-carousel__btn-container{
+  justify-self: center;
+  align-self: center;
+}
+
+.review-carousel{
+  justify-content: center;
+}
+
+.review-carousel__content{
+  align-items: center;
 }

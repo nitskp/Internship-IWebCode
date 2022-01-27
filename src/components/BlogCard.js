@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import ImageContainer from "./ImageContainer";
+import "../css/BlogCard.css";
 
 const BlogCard = (props) => {
   const blogCardImg = props.blogCardImg;
@@ -10,16 +11,19 @@ const BlogCard = (props) => {
   return (
     <>
       <ImageContainer
-        urlImage={blogCardImg}
+        imageUrl={blogCardImg}
         altText="Blog Post Image"
         size={{ width: 380, height: 330 }}
       />
-      <p>{blogCardDate}</p>
-      <Link to="/">
-        <h2>{blogCardHeading}</h2>
-      </Link>
-      <p>{blogCardText}</p>
-      <Link to='/'>Read More &raquo;</Link>
+      <p className="blog-card__date">{blogCardDate}</p>
+
+      <h2 className="blog-card__heading">
+        {" "}
+        <Link to="/">{blogCardHeading} </Link>
+      </h2>
+
+      <p className="blog-card__text">{blogCardText}</p>
+      <Link className="blog-card__link" to="/">Read More &raquo;</Link>
     </>
   );
 };

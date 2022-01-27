@@ -26,8 +26,10 @@
 
 .review__text{
     padding: 20px;
-    margin: 0 20px;
+    margin: 0 auto;
     margin-bottom: 20px;
     font-style: italic;
     font-size: 16px;
 }
+
+

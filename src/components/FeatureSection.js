@@ -23,13 +23,13 @@ const FeatureSection = (props) => {
   return (
     <>
       <div className="row feature-section__body">
-        <div className="col-lg-3">
+        <div className="col-3">
           <ImageContainer imageUrl={person1} altText="person1" />
         </div>
-        <div className="col-lg-6">
+        <div className="col-6">
           <Description descriptionHeading={descriptionHeading} descriptionText={descriptionText} buttonText={buttonText}/>
         </div>
-        <div className="col-lg-3">
+        <div className="col-3">
           <ImageContainer imageUrl={person2} altText="person2" />
         </div>
       </div>

@@ -1,20 +1,18 @@
 import React from "react";
 import Button from "./Button";
-import '../css/GettingStartedSection.css'
+import "../css/GettingStartedSection.css";
+import VideoModal from "./VideoModal";
 
 const GettingStartedSection = () => {
   return (
     <div className="row">
       <div className="col-lg-7">
-        <video
-          width="732"
-          height="470"
-          controls
-          src="https://www.youtube.com/watch?v=KI2lsdXJQ40"
-        ></video>
+        <VideoModal />
       </div>
       <div className="col-lg-5 getting-started-description">
-        <h1 className="getting-started__heading">Getting started with impact</h1>
+        <h1 className="getting-started__heading">
+          Getting started with impact
+        </h1>
         <p className="getting-started__paragraph">
           Labore id odit sit optio, voluptas sequi nobis aliquid dignissimos
           iure recusandae.
