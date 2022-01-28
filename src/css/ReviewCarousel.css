@@ -25,3 +25,16 @@
 .review-carousel__content{
   align-items: center;
 }
+
+.review-carousel__round-btn-container{
+  display: flex;
+  justify-content: center;
+}
+
+.review-carousel__round-btn{
+  width: 16px;
+  height: 16px;
+  border-radius: 8px;
+  margin-right: 2px;
+  background: transparent;
+}

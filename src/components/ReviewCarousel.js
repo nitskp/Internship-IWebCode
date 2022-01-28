@@ -48,9 +48,33 @@ class ReviewCarousel extends Component {
 
   changeActive = (currentImg, imgs) => {
     imgs[currentImg].style.display= "block";
-    console.log("Current Img", currentImg);
+    // console.log("Current Img", currentImg);
     // console.log("")
-  };
+  }
+
+  showFirst = () => {
+    let imgs = document.getElementsByClassName("review");
+    let currentImg = this.state.currentImg;
+    imgs[currentImg].style.display = "none";
+    this.changeActive(0,imgs);
+    this.setState({currentImg:0});
+  }
+
+  showSecond = () => {
+    let imgs = document.getElementsByClassName("review");
+    let currentImg = this.state.currentImg;
+    imgs[currentImg].style.display = "none";
+    this.changeActive(1,imgs);
+    this.setState({currentImg:1});
+  }
+
+  showThird = () => {
+    let imgs = document.getElementsByClassName("review");
+    let currentImg = this.state.currentImg;
+    imgs[currentImg].style.display = "none";
+    this.changeActive(2,imgs);
+    this.setState({currentImg:2});
+  }
   render() {
     const reviewHeading = "Maria Jones";
     const reviewUserType = "Customer";
@@ -94,6 +118,11 @@ class ReviewCarousel extends Component {
             >
               &gt;
             </button>
+          </div>
+          <div className="review-carousel__round-btn-container">
+            <button className="review-carousel__round-btn" onClick={this.showFirst}></button>
+            <button className="review-carousel__round-btn" onClick={this.showSecond}></button>
+            <button className="review-carousel__round-btn" onClick={this.showThird}></button>
           </div>
         </div>
       </>
