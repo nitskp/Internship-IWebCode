@@ -1,12 +1,13 @@
-.col{
-    width: 750;
-    height: 400;
+.video-modal{
+    width: 80vw;
+    height: fit-content;
 }
 .video-modal button{
     position: relative;
     text-align: center;
-    top: 270px;
-    left: 320px;
+    /* for time being let it be 200px. It should be 50%. Don't know why it isn't working. */
+    top: 200px;
+    left: 30vw;
     font-size: 13px;
     background: white;
     width: 80px;

@@ -10,6 +10,14 @@ p, a {
   ;
 }
 
+p{
+  line-height: 30px;
+}
+
+body{
+  overflow-x: hidden;
+}
+
 .blue {
   background: #008374;
 }

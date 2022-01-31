@@ -5,9 +5,9 @@ import "../css/Footer.css"
 
 const Footer = () => {
   return (
-    <div className="bg-dark footer">
-      <div className="row footer__info">
-        <div className="col-lg-5 footer__about">
+    <div className="footer">
+      <div className="footer__info">
+        <div className="footer__about">
           <h1 className="footer__heading"> About Impact</h1>
           <p className="footer__text">
             Far far away, behind the word mountains, far from the countries
@@ -34,7 +34,7 @@ const Footer = () => {
             </li>
           </ul>
         </div>
-        <div className="col-lg-2">
+        <div className="footer__links">
           <h1 className="footer__heading">Links</h1>
           <ul className="footer__list">
             <li>
@@ -54,7 +54,7 @@ const Footer = () => {
             </li>
           </ul>
         </div>
-        <div className="col-lg-2">
+        <div className="footer__company">
           <h1 className="footer__heading">Company</h1>
           <ul className="footer__list">
             <li>
@@ -74,7 +74,7 @@ const Footer = () => {
             </li>
           </ul>
         </div>
-        <div className="col-lg-3">
+        <div className="footer__contact">
           <h1 className="footer__heading">Contact</h1>
           <ul className="footer__list">
             <li>43 Raymouth Rd. Baltemoer, London 3910</li>
@@ -89,7 +89,7 @@ const Footer = () => {
           </ul>
         </div>
       </div>
-      <div className="row footer__copyright">
+      <div className="footer__copyright">
         <p>
           Copyright ©2022. All Rights Reserved. — Designed with love by
           <Link to="/"> Untree.co </Link>•<Link to="/"> License</Link>

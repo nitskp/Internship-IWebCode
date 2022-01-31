@@ -1,4 +1,28 @@
-.info__icon{
+.info-card{
+    padding: 0 12px;
+}
+
+.info-card__heading{
+    font-size: 18px;
+    margin: 0;
+    margin-bottom: 8px;
+    color: white;
+}
+
+.info-card__text{
+    font-size: 14px;
+    color: #FFFFFF80;
+    margin: 0;
+}
+
+.info-card__icon-container {
+    color: white;
+    height: 50px;
+    align-items: center;
+    margin-top: 10px;
+}
+
+/* .info__icon{
     color: white;
     margin-top: 50px;
 }
@@ -16,3 +40,7 @@
     opacity: 0.5;
     margin: 0 25px;
 }
+
+.info{
+    padding-bottom: 20px;
+} */

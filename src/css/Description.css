@@ -1,12 +1,12 @@
 .description__heading{
-    font-size: 40px;
+    font-size: 34px;
     color: white;
-    padding: 30px;
+    margin-bottom: 8px;
     text-align: center;
 }
 
 .description__text{
-    font-size: 20px;
+    font-size: 16px;
     color: white;
     opacity: 0.7;
     margin: 0 50px;
@@ -18,7 +18,7 @@
     text-align: center;
 }
 
-.description >.btn-danger:hover{
+.description >.btn:hover{
     background: transparent;
-    border: white;
+    border: solid 2px white;
 }

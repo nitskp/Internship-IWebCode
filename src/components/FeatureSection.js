@@ -22,40 +22,76 @@ const FeatureSection = (props) => {
   const buttonText = "Get in Touch";
   return (
     <>
-      <div className="row feature-section__body">
-        <div className="col-3">
+      <div className="feature-section">
+      <div className="feature-section__person-1">
           <ImageContainer imageUrl={person1} altText="person1" />
         </div>
-        <div className="col-6">
-          <Description descriptionHeading={descriptionHeading} descriptionText={descriptionText} buttonText={buttonText}/>
+        <div className="feature-section__description">
+          <Description
+            descriptionHeading={descriptionHeading}
+            descriptionText={descriptionText}
+            buttonText={buttonText}
+          />
         </div>
-        <div className="col-3">
+        
+        <div className="feature-section__person-2">
           <ImageContainer imageUrl={person2} altText="person2" />
         </div>
       </div>
-      <div className="row info-card">
-        <div className="col-lg">
-          <InfoCard
-            infoHeading={infoHeading1}
-            infoText={infoText}
-            infoIcon={layerIcon}
+      <div className="feature-section__info-card">
+        <InfoCard
+          infoHeading={infoHeading1}
+          infoText={infoText}
+          infoIcon={layerIcon}
+          isImage={false}
+        />
+        <InfoCard
+          infoHeading={infoHeading2}
+          infoText={infoText}
+          infoIcon={phoneIcon}
+          isImage={false}
+        />
+        <InfoCard
+          infoHeading={infoHeading3}
+          infoText={infoText}
+          infoIcon={bagIcon}
+          isImage={false}
+        />
+      </div>
+
+      {/* <div className="feature-section">
+        <div className="feature-section__left-image">
+          <ImageContainer imageUrl={person1} altText="person1" />
+        </div>
+        <div className="feature-section__description">
+          <Description
+            descriptionHeading={descriptionHeading}
+            descriptionText={descriptionText}
+            buttonText={buttonText}
           />
         </div>
-        <div className="col-lg">
-          <InfoCard
-            infoHeading={infoHeading2}
-            infoText={infoText}
-            infoIcon={phoneIcon}
-          />
-        </div>
-        <div className="col-lg">
-          <InfoCard
-            infoHeading={infoHeading3}
-            infoText={infoText}
-            infoIcon={bagIcon}
-          />
+        <div className="feature-section__right-image">
+          <ImageContainer imageUrl={person2} altText="person2" />
         </div>
       </div>
+
+      <div className="info-card">
+        <InfoCard
+          infoHeading={infoHeading1}
+          infoText={infoText}
+          infoIcon={layerIcon}
+        />
+        <InfoCard
+          infoHeading={infoHeading2}
+          infoText={infoText}
+          infoIcon={phoneIcon}
+        />
+        <InfoCard
+          infoHeading={infoHeading3}
+          infoText={infoText}
+          infoIcon={bagIcon}
+        />
+      </div> */}
     </>
   );
 };

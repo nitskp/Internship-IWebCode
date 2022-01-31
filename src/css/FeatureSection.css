@@ -1,10 +1,140 @@
-.info-card{
+@media (max-width:992px) {
+    .feature-section{
+        max-width: 540px;
+        height: auto;
+        margin: 0 auto;
+        margin-top: 155px;
+        display: flex;
+    }
+    
+    .feature-section__description{
+        padding: 10px;
+    }
+    
+    .feature-section__person-1{
+        position: absolute;
+        top: 160px;
+        left: -170px;
+        width: 236px;
+        height: auto;
+    }
+    
+    .feature-section__person-2{
+        position: absolute;
+        top: 160px;
+        right: -140px;
+        width: 236px;
+        height: auto;
+    }
+    
+    .feature-section__info-card{
+        background: #4D9180;
+        max-width: 720px;
+        margin: 0 14vw;
+        margin-top: 240px;
+        padding: 50px;
+        border-radius: 10px;
+    }
+    
+}
+
+@media (min-width:992px) {
+    .feature-section{
+        max-width: 720px;
+        height: auto;
+        margin: 0 auto;
+        margin-top: 155px;
+        display: flex;
+    }
+
+    .feature-section__description{
+        padding: 10px;
+        max-width: 650px;
+        margin: 0 auto;
+    }
+
+    .feature-section__person-1{
+        position: absolute;
+        top: 160px;
+        left: 9vw;
+        width: 236px;
+        height: auto;
+    }
+
+    .feature-section__person-2{
+        position: absolute;
+        top: 160px;
+        right: 9vw;
+        width: 236px;
+        height: auto;
+    }
+
+    .feature-section__info-card{
+        background: #4D9180;
+        max-width: 1280px;
+        margin: 0 14vw;
+        margin-top: 240px;
+        padding: 50px;
+        border-radius: 10px;
+        display: flex;
+    }
+}
+
+/* .info-card{
     margin: 0 auto;
     margin-top: 100px;
     padding: 30px;
     background: #009080;
 }
 
-.feature-section__body{
-    margin-top: 100px;
+.feature-section{
+    max-width: 100vw;
+    overflow: hidden;
+    display: flex;
 }
+
+@media (max-width: 992px) {
+    
+    .feature-section__left-image{
+        position: absolute;
+        top: 130px;
+        left: -180px;
+        overflow: hidden;
+      
+    }
+    
+    .feature-section__description{
+
+    }
+    
+    .feature-section__right-image{
+        position: absolute;
+        top: 130px;
+        right: -100px;
+        overflow: hidden;
+    }
+}
+
+@media (min-width:992px) {
+    .feature-section__description{
+        position: relative;
+        top: 100px;
+    }
+    .feature-section__left-image{
+        position: relative;
+        top: 50px;
+    
+    }
+    .feature-section__right-image{
+        position: relative;
+        top: 50px;
+
+    }
+    .info-card{
+        display: flex;
+        margin: 0 auto;
+        margin-top: 100px;
+        padding: 30px;
+        background: #009080;
+    }
+} */

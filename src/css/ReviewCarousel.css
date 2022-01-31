@@ -1,40 +1,52 @@
-.review-carousel__btn{
-  background: transparent;
-  font-size: 50px;
-  margin-top: 100px;
-  border: 0;
+.review-carousel{
+  display: flex;
+  justify-content: space-evenly;
 }
 
-.right-btn{
-  margin-left: 250px;
+.review-carousel__container{
+  margin-bottom: 112px;
 }
+
+.review-carousel_btn-container{
+  /* why doesn't this align the buttons to the center  */
+  align-items: center;
+}
+.review-carousel__left-btn{
+  transform: rotate(90deg);
+  background: transparent;
+  font-size: 30px;
+  border: transparent;
+  margin-top: 150px;
+}
+
+.review-carousel__right-btn{
+  transform: rotate(-90deg);
+  background: transparent;
+  font-size: 30px;
+  margin-top: 150px;
+  border: transparent;
+}
+
 
 .review{
   display: none;
 }
 
-.review-carousel__btn-container{
-  justify-self: center;
-  align-self: center;
-}
-
-.review-carousel{
-  justify-content: center;
-}
-
-.review-carousel__content{
-  align-items: center;
-}
-
 .review-carousel__round-btn-container{
   display: flex;
   justify-content: center;
+  margin-bottom: 10px;
 }
 
 .review-carousel__round-btn{
-  width: 16px;
-  height: 16px;
-  border-radius: 8px;
-  margin-right: 2px;
-  background: transparent;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  margin-right: 5px;
+  border: solid 1px #e2e2e2;
+  background: #e2e2e2;
+}
+
+.review-carousel__round-btn:focus{
+  background: red;
 }

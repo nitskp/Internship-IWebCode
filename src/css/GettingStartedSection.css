@@ -1,23 +1,38 @@
+.getting-started{
+    margin: 60px 0;
+    padding-top: 50px;
+}
 .getting-started__heading{
     font-size: 30px;
-    font-weight: bolder;
+    color: #212529;
 }
 
 .getting-started__text{
-    font-size: 20px;
-}
-
-.getting-started-description{
-    padding-top: 70px;
-    padding-left: 100px;
+    font-size: 14px;
+    margin: 0;
+    margin-bottom: 16px;
+    color: #212529;
 }
 
 .getting-started__list{
     list-style: none;
     padding-left: 0;
+    color: #212529;
+    font-size: 14px;
+    font-family: 'Open Sans', sans-serif;
 }
+
+.getting-started__list li{
+    margin-bottom: 7px;
+}
+
 .getting-started__list li::before{
     content: '\2713';
     color: red;
     padding-right: 5px;
+}
+
+.getting-started .btn{
+    display: block;
+    margin: 24px 0 16px;
 }

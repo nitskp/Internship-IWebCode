@@ -6,9 +6,9 @@ const Icon = (props) => {
   const icon = props.icon + " fa-stack-1x fa-inverse";
   return (
     
-      <span class="fa-stack fa-2x">
+      <span className="fa-stack fa-2x">
         <Link className="icon__link" to="/">
-        <i class="fas fa-circle fa-stack-2x"></i>
+        <i className="fas fa-circle fa-stack-2x"></i>
         <i className={icon}></i>
         </Link>
       </span>

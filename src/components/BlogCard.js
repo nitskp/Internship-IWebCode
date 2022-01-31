@@ -13,17 +13,21 @@ const BlogCard = (props) => {
       <ImageContainer
         imageUrl={blogCardImg}
         altText="Blog Post Image"
-        size={{ width: 380, height: 330 }}
+        // size={{ width: 380, height: 330 }}
       />
-      <p className="blog-card__date">{blogCardDate}</p>
+      <div className="blog-card__info">
+        <p className="blog-card__date">{blogCardDate}</p>
 
-      <h2 className="blog-card__heading">
-        {" "}
-        <Link to="/">{blogCardHeading} </Link>
-      </h2>
+        <h2 className="blog-card__heading">
+          {" "}
+          <Link to="/">{blogCardHeading} </Link>
+        </h2>
 
-      <p className="blog-card__text">{blogCardText}</p>
-      <Link className="blog-card__link" to="/">Read More &raquo;</Link>
+        <p className="blog-card__text">{blogCardText}</p>
+        <Link className="blog-card__link" to="/">
+          Read More &raquo;
+        </Link>
+      </div>
     </>
   );
 };

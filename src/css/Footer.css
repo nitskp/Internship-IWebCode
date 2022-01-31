@@ -1,6 +1,7 @@
 .footer{
     color: white;
-    padding: 20px 60px;
+    padding: 112px 60px;
+    background: black;
 }
 
 .footer__info{
@@ -14,13 +15,13 @@
 
 .footer__heading{
     margin-top: 40px;
-    font-size: 18px;
+    font-size: 16px;
 }
 
 .footer__text{
     margin-top: 20px;
     opacity: 0.5;
-    font-size: 14px;
+    font-size: 16px;
 }
 
 .footer__icon-list {
@@ -61,4 +62,28 @@
 .footer a{
     text-decoration: none;
     color: rgb(129, 127, 127);
+}
+
+@media (min-width:992px) {
+    .footer__info{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .footer__about{
+        max-width: 30vw;
+        padding-right: 0;
+    }
+
+    .footer__links{
+        max-width: 10vw;
+    }
+
+    .footer__company{
+        max-width: 10vw;
+    }
+
+    .footer__contact{
+        max-width: 20vw;
+    }
 }

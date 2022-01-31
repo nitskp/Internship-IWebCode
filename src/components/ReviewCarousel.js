@@ -79,16 +79,16 @@ class ReviewCarousel extends Component {
     const reviewHeading = "Maria Jones";
     const reviewUserType = "Customer";
     const reviewText =
-      "“Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.”";
+      "\“Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.\”";
 
     return (
-      <>
-        <div className="row review-carousel">
-          <div className="col-lg-1 review-carousel__btn-container">
-            <button className="review-carousel__btn" onClick={this.imgMinus}>&lt;</button>
+      <div className="review-carousel__container">
+        <div className="review-carousel">
+          <div className="review-carousel__btn-container">
+            <button className="review-carousel__left-btn" onClick={this.imgMinus}>&#8964;</button>
           </div>
 
-          <div className="col-lg-6 review-carousel__content">
+          <div className="review-carousel__content">
             <Review
               reviewImg={person1}
               reviewText={reviewText}
@@ -111,21 +111,22 @@ class ReviewCarousel extends Component {
             />
           </div>
 
-          <div className="col-lg-1 review-carousel__btn-container">
+          <div className="review-carousel__btn-container">
             <button
-              className="review-carousel__btn"
+              className="review-carousel__right-btn"
               onClick={this.imgPlus}
             >
-              &gt;
+              &#8964;
             </button>
           </div>
+
+        </div>
           <div className="review-carousel__round-btn-container">
             <button className="review-carousel__round-btn" onClick={this.showFirst}></button>
             <button className="review-carousel__round-btn" onClick={this.showSecond}></button>
             <button className="review-carousel__round-btn" onClick={this.showThird}></button>
           </div>
-        </div>
-      </>
+      </div>
     );
   }
 }

@@ -9,7 +9,7 @@ const Review = (props) => {
   
   return (
     
-    <div className="container review">
+    <div className="review">
       <img className="review__img" src={reviewImg} alt="User" />
       <h3 className="review__heading">{reviewHeading}</h3>
       <h4 className="review__user-type">{reviewUserType}</h4>

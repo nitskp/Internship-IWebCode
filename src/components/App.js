@@ -13,28 +13,22 @@ function App() {
   return (
     <>
       <div className="blue">
-        <div className="container">
           <Navbar />
           <FeatureSection />
         </div>
-        <div className="container"></div>
-      </div>
-      <div className="container">
+      
         <ChooseSection/>
-      </div>
-      <div className="container">
         <WhyUsSection />
-      </div>
-      <div className="container">
-        <GettingStartedSection />
-      </div>
-      <div className="container">
         <ReviewCarousel />
-      </div>
+
+        <BlogPostSection />
+        <Footer/> 
+      {/*
+      
       <div className="container">
         <BlogPostSection />
       </div>
-      <Footer/>
+      */}
     </>
   );
 }

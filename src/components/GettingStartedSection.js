@@ -1,15 +1,11 @@
 import React from "react";
 import Button from "./Button";
 import "../css/GettingStartedSection.css";
-import VideoModal from "./VideoModal";
 
 const GettingStartedSection = () => {
   return (
-    <div className="row">
-      <div className="col-lg-7">
-        <VideoModal />
-      </div>
-      <div className="col-lg-5 getting-started-description">
+    <div className="getting-started">
+      <div className="getting-started-description">
         <h1 className="getting-started__heading">
           Getting started with impact
         </h1>
@@ -26,6 +22,7 @@ const GettingStartedSection = () => {
         </ul>
         <Button buttonText="Learn More" />
       </div>
+
     </div>
   );
 };

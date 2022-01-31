@@ -1,25 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "../css/Navbar.css";
+import clsx from "clsx";
 
 const Navbar = () => {
-
-  const showNavLinks = () => {
-    const list = document.getElementsByClassName('navbar__links');
-    const crossButton = document.getElementsByClassName('navbar__cross-icon-container')[0].firstChild;
-    list[0].style.display = "flex";
-    crossButton.style.display = "block";
-    
-  }
-
-  const closeNavLinks = () => {
-    const list = document.getElementsByClassName('navbar__links');
-    const crossButton = document.getElementsByClassName('navbar__cross-icon-container')[0].firstChild;
-    list[0].style.display = "none";
-    crossButton.style.display = "none";
-    
-  }
-
+  const [isShown, setIsShown] = useState(false);
+  const [isClickedFirst, setIsClickedFirst] = useState(false);
+  const [isClickedSecond, setIsClickedSecond] = useState(false);
+  // console.log(isClicked);
 
   return (
     <nav className="navbar">
@@ -27,33 +15,53 @@ const Navbar = () => {
         <Link to="index.html">Impact</Link>
       </div>
       <div className="navbar__hamburger-icon-container">
-        <button onClick={showNavLinks}>
-        <i class="fas fa-bars fa-2x"></i>
+        <button onClick={() => setIsShown(true)}>
+          <i className="fas fa-bars fa-2x"></i>
         </button>
       </div>
-      <div className="navbar__cross-icon-container">
-        <button onClick={closeNavLinks}>&#43;</button>
+      <div
+        className={clsx("navbar__cross-icon-container", {
+          "navbar__links--show": isShown,
+        })}
+      >
+        <button onClick={() => setIsShown(false)}>&#43;</button>
       </div>
-      
-      <ul className="navbar__links">
+
+      <ul className={clsx("navbar__links", { "navbar__links--show": isShown })}>
         <li className="navbar__links--active">
           <Link to="/">Home</Link>
         </li>
         <li className="navbar__dropdown--hover">
           <Link to="/">
-            Dropdown 
-            <span>&#94;</span>
+            Dropdown
+            <span onClick={() => setIsClickedFirst(!isClickedFirst)}
+            className={clsx({"navbar__icons":isClickedFirst})}>
+              &#8964;
+            </span>
           </Link>
-          <ul className="navbar__dropdown">
+          <ul
+            className={clsx(
+              "navbar__dropdown",
+              { "navbar__links--show": isClickedFirst }
+            )}
+          >
             <li>
               <Link to="/">Menu One</Link>
             </li>
             <li className="navbar__side-dropdown--hover">
               <Link to="/">
-                Menu Two 
-                <span>&#94;</span>
+                Menu Two
+                <span onClick={() => setIsClickedSecond(!isClickedSecond)}
+                className={clsx({"navbar__icons":isClickedSecond})}>
+                  &#8964;
+                </span>
               </Link>
-              <ul className="navbar__side-dropdown">
+              <ul
+                className={clsx(
+                  "navbar__side-dropdown",
+                  { "navbar__links--show": isClickedSecond }
+                )}
+              >
                 <li>
                   <Link to="/">Sub Menu One</Link>
                 </li>
@@ -84,8 +92,6 @@ const Navbar = () => {
         </li>
       </ul>
     </nav>
-
-    
   );
 };
 
