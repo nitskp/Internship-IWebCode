@@ -7,6 +7,26 @@ import heroMin from "../assets/imgs/hero-min.jpg";
 import { useState } from "react/cjs/react.development";
 import clsx from "clsx";
 
+const Modal = (props) => {
+  const videoUrl = props.videoUrl;
+  const [toggleDisplay,setToggleDisplay] = props.playStates;
+  return(
+    <div
+        className={clsx("video-modal__content", {
+          "video-modal--show": toggleDisplay,
+        })}
+      >
+        <div className="video-modal__cross-button-container">
+          <button onClick={() => setToggleDisplay(false)}>&#10539;</button>
+        </div>
+        <div className="video-modal__video-container">
+
+        <Video videoUrl={videoUrl} />
+        </div>
+      </div>
+  )
+}
+
 const VideoModal = () => {
   const [toggleDisplay, setToggleDisplay] = useState(false);
   const imageUrl = heroMin;
@@ -28,20 +48,11 @@ const VideoModal = () => {
           altText="hero-min-image"
         />
       </Link>
-
-      <div
-        className={clsx("video-modal__content", {
-          "video-modal--show": toggleDisplay,
-        })}
-      >
-        <div className="video-modal__cross-button-container">
-          <button onClick={() => setToggleDisplay(false)}>&#10539;</button>
-        </div>
-        <div className="video-modal__video-container">
-
-        <Video videoUrl={videoUrl} />
-        </div>
-      </div>
+      {
+        toggleDisplay?<Modal playStates={[toggleDisplay,setToggleDisplay]} videoUrl={videoUrl}/>:<></>
+      }
+      
+      
     </div>
   );
 };

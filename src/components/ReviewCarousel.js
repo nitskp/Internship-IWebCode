@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import person1 from "../assets/imgs/person_1.jpg";
 import person2 from "../assets/imgs/person_2.jpg";
 import person3 from "../assets/imgs/person_3.jpg";
@@ -11,15 +11,11 @@ const ReviewCarousel = () => {
   const [currentImg, setCurrentImg] = useState(0);
   const totalNoOfImgs = 3; //change upon total no.of images
 
-  const imgMinus = () => {
-    if (currentImg === 0) return (currentImg = totalNoOfImgs - 1);
-    else return (currentImg -= 1);
-  };
-
-  const imgPlus = () => {
-    if (currentImg === totalNoOfImgs - 1) return (currentImg = 0);
-    else return (currentImg += 1);
-  };
+  useEffect(()=>{
+    setTimeout(()=>{
+      setCurrentImg((currentImg+1)%totalNoOfImgs)
+    },4000)
+  })
 
   const reviewHeading = "Maria Jones";
   const reviewUserType = "Customer";
@@ -32,7 +28,7 @@ const ReviewCarousel = () => {
         <div className="review-carousel__btn-container">
           <button
             className="review-carousel__left-btn"
-            onClick={() => setCurrentImg(imgMinus())}
+            onClick={() => setCurrentImg((currentImg + totalNoOfImgs-1)%totalNoOfImgs)}
           >
             &#8964;
           </button>
@@ -54,8 +50,8 @@ const ReviewCarousel = () => {
           </div>
           <div
             className={clsx(
-              { "review-carousel__review-container": currentImg !== 0 ,
-               "review-carousel--show": currentImg === 0 }
+              { "review-carousel__review-container": currentImg !== 1 ,
+               "review-carousel--show": currentImg === 1 }
             )}
           >
             <Review
@@ -67,8 +63,8 @@ const ReviewCarousel = () => {
           </div>
           <div
             className={clsx(
-              { "review-carousel__review-container": currentImg !== 0 ,
-               "review-carousel--show": currentImg === 0 }
+              { "review-carousel__review-container": currentImg !== 2 ,
+               "review-carousel--show": currentImg === 2 }
             )}
           >
             <Review
@@ -83,7 +79,7 @@ const ReviewCarousel = () => {
         <div className="review-carousel__btn-container">
           <button
             className="review-carousel__right-btn"
-            onClick={() => setCurrentImg(imgPlus())}
+            onClick={() => setCurrentImg((currentImg+1)%totalNoOfImgs)}
           >
             &#8964;
           </button>
@@ -93,19 +89,19 @@ const ReviewCarousel = () => {
         <button
         //why isn't the class review-carousel__red-background adding 
           className={clsx("review-carousel__round-btn", {
-            "review-carousel__red-background": currentImg === 0,
+            "review-carousel__red-background": currentImg == 0,
           })}
           onClick={() => setCurrentImg(0)}
         ></button>
         <button
           className={clsx("review-carousel__round-btn", {
-            "review-carousel__red-background": currentImg === 1,
+            "review-carousel__red-background": currentImg == 1,
           })}
           onClick={() => setCurrentImg(1)}
         ></button>
         <button
           className={clsx("review-carousel__round-btn",{
-            "review-carousel__red-background": currentImg === 2,
+            "review-carousel__red-background": currentImg == 2,
           })}
           onClick={() => setCurrentImg(2)}
         ></button>
