@@ -89,19 +89,19 @@ const ReviewCarousel = () => {
         <button
         //why isn't the class review-carousel__red-background adding 
           className={clsx("review-carousel__round-btn", {
-            "review-carousel__red-background": currentImg == 0,
+            "review-carousel__red-background": currentImg === 0,
           })}
           onClick={() => setCurrentImg(0)}
         ></button>
         <button
           className={clsx("review-carousel__round-btn", {
-            "review-carousel__red-background": currentImg == 1,
+            "review-carousel__red-background": currentImg === 1,
           })}
           onClick={() => setCurrentImg(1)}
         ></button>
         <button
           className={clsx("review-carousel__round-btn",{
-            "review-carousel__red-background": currentImg == 2,
+            "review-carousel__red-background": currentImg === 2,
           })}
           onClick={() => setCurrentImg(2)}
         ></button>
