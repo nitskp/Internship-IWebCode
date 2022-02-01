@@ -21,7 +21,7 @@
 .footer__text{
     margin-top: 20px;
     opacity: 0.5;
-    font-size: 16px;
+    font-size: 14px;
 }
 
 .footer__icon-list {
@@ -33,6 +33,7 @@
 
 .footer__icon-list li a{
     color: red;
+    font-size: 16px;
 }
 
 .footer__list {
@@ -44,6 +45,11 @@
 .footer__list li{
     color: rgb(129, 127, 127);
     padding: 7px 0px;
+    font-size: 14px;
+}
+
+.footer__list li a{
+    font-size: 14px;
 }
 
 .footer__copyright{
@@ -53,10 +59,14 @@
 }
 
 .footer__copyright p{
-    color: rgb(129, 127, 127);;
+    color: rgb(129, 127, 127);
+
+    font-size: 14px;
 }
 .footer__copyright p a{
     color: white;
+
+    font-size: 14px;
 }
 
 .footer a{

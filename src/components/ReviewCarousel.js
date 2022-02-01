@@ -4,105 +4,73 @@ import person2 from "../assets/imgs/person_2.jpg";
 import person3 from "../assets/imgs/person_3.jpg";
 import Review from "./Review";
 import "../css/ReviewCarousel.css";
+import { useState } from "react/cjs/react.development";
+import clsx from "clsx";
 
-class ReviewCarousel extends Component {
-  state = {
-    currentImg: 0,
-    totalNoOfImgs: 3,
+const ReviewCarousel = () => {
+  const [currentImg, setCurrentImg] = useState(0);
+  const totalNoOfImgs = 3; //change upon total no.of images
+
+  const imgMinus = () => {
+    if (currentImg === 0) return (currentImg = totalNoOfImgs - 1);
+    else return (currentImg -= 1);
   };
 
-  componentDidMount(){
-    console.log("Component Mounted");
-    let imgs = document.getElementsByClassName("review");
-    imgs[0].style.display= "block";
-
-
-  }
-
-  imgMinus = () => {
-    let imgs = document.getElementsByClassName("review");
-    let currentImg = this.state.currentImg;
-    imgs[currentImg].style.display = "none";
-    if (currentImg === 0) {
-      currentImg = this.state.totalNoOfImgs - 1;
-    } else {
-      currentImg -= 1;
-    }
-
-    this.changeActive(currentImg,imgs);
-    this.setState({currentImg:currentImg})
+  const imgPlus = () => {
+    if (currentImg === totalNoOfImgs - 1) return (currentImg = 0);
+    else return (currentImg += 1);
   };
 
-  imgPlus = () => {
-    let imgs = document.getElementsByClassName("review");
-    let currentImg = this.state.currentImg;
-    imgs[currentImg].style.display = "none";
-    if (currentImg === this.state.totalNoOfImgs - 1) {
-      currentImg = 0;
-    } else {
-      currentImg += 1;
-    }
-    this.changeActive(currentImg, imgs);
-    this.setState({currentImg:currentImg})
-  };
+  const reviewHeading = "Maria Jones";
+  const reviewUserType = "Customer";
+  const reviewText =
+    "“Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.”";
 
-  changeActive = (currentImg, imgs) => {
-    imgs[currentImg].style.display= "block";
-    // console.log("Current Img", currentImg);
-    // console.log("")
-  }
+  return (
+    <div className="review-carousel__container">
+      <div className="review-carousel">
+        <div className="review-carousel__btn-container">
+          <button
+            className="review-carousel__left-btn"
+            onClick={() => setCurrentImg(imgMinus())}
+          >
+            &#8964;
+          </button>
+        </div>
 
-  showFirst = () => {
-    let imgs = document.getElementsByClassName("review");
-    let currentImg = this.state.currentImg;
-    imgs[currentImg].style.display = "none";
-    this.changeActive(0,imgs);
-    this.setState({currentImg:0});
-  }
-
-  showSecond = () => {
-    let imgs = document.getElementsByClassName("review");
-    let currentImg = this.state.currentImg;
-    imgs[currentImg].style.display = "none";
-    this.changeActive(1,imgs);
-    this.setState({currentImg:1});
-  }
-
-  showThird = () => {
-    let imgs = document.getElementsByClassName("review");
-    let currentImg = this.state.currentImg;
-    imgs[currentImg].style.display = "none";
-    this.changeActive(2,imgs);
-    this.setState({currentImg:2});
-  }
-  render() {
-    const reviewHeading = "Maria Jones";
-    const reviewUserType = "Customer";
-    const reviewText =
-      "\“Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.\”";
-
-    return (
-      <div className="review-carousel__container">
-        <div className="review-carousel">
-          <div className="review-carousel__btn-container">
-            <button className="review-carousel__left-btn" onClick={this.imgMinus}>&#8964;</button>
-          </div>
-
-          <div className="review-carousel__content">
+        <div className="review-carousel__content">
+          <div
+            className={clsx(
+              { "review-carousel__review-container": currentImg != 0 ,
+               "review-carousel--show": currentImg == 0 }
+            )}
+          >
             <Review
               reviewImg={person1}
               reviewText={reviewText}
               reviewUserType={reviewUserType}
               reviewHeading={reviewHeading}
             />
-
+          </div>
+          <div
+            className={clsx(
+              { "review-carousel__review-container": currentImg != 0 ,
+               "review-carousel--show": currentImg == 0 }
+            )}
+          >
             <Review
               reviewImg={person2}
               reviewText={reviewText}
               reviewUserType={reviewUserType}
               reviewHeading={reviewHeading}
             />
-
+          </div>
+          <div
+            className={clsx(
+              { "review-carousel__review-container": currentImg != 0 ,
+               "review-carousel--show": currentImg == 0 }
+            )}
+          >
             <Review
               reviewImg={person3}
               reviewText={reviewText}
@@ -110,25 +78,40 @@ class ReviewCarousel extends Component {
               reviewHeading={reviewHeading}
             />
           </div>
-
-          <div className="review-carousel__btn-container">
-            <button
-              className="review-carousel__right-btn"
-              onClick={this.imgPlus}
-            >
-              &#8964;
-            </button>
-          </div>
-
         </div>
-          <div className="review-carousel__round-btn-container">
-            <button className="review-carousel__round-btn" onClick={this.showFirst}></button>
-            <button className="review-carousel__round-btn" onClick={this.showSecond}></button>
-            <button className="review-carousel__round-btn" onClick={this.showThird}></button>
-          </div>
+
+        <div className="review-carousel__btn-container">
+          <button
+            className="review-carousel__right-btn"
+            onClick={() => setCurrentImg(imgPlus())}
+          >
+            &#8964;
+          </button>
+        </div>
       </div>
-    );
-  }
-}
+      <div className="review-carousel__round-btn-container">
+        <button
+        //why isn't the class review-carousel__red-background adding 
+          className={clsx("review-carousel__round-btn", {
+            "review-carousel__red-background": currentImg == 0,
+          })}
+          onClick={() => setCurrentImg(0)}
+        ></button>
+        <button
+          className={clsx("review-carousel__round-btn", {
+            "review-carousel__red-background": currentImg == 1,
+          })}
+          onClick={() => setCurrentImg(1)}
+        ></button>
+        <button
+          className={clsx("review-carousel__round-btn",{
+            "review-carousel__red-background": currentImg == 2,
+          })}
+          onClick={() => setCurrentImg(2)}
+        ></button>
+      </div>
+    </div>
+  );
+};
 
 export default ReviewCarousel;

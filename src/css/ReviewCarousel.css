@@ -1,6 +1,6 @@
 .review-carousel{
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
 }
 
 .review-carousel__container{
@@ -17,6 +17,7 @@
   font-size: 30px;
   border: transparent;
   margin-top: 150px;
+  margin-left: 2vw;
 }
 
 .review-carousel__right-btn{
@@ -25,11 +26,16 @@
   font-size: 30px;
   margin-top: 150px;
   border: transparent;
+  margin-right: 2vw;
 }
 
 
-.review{
+.review-carousel__review-container{
   display: none;
+}
+
+.review-carousel--show{
+  display: block;
 }
 
 .review-carousel__round-btn-container{
@@ -39,14 +45,19 @@
 }
 
 .review-carousel__round-btn{
-  width: 7px;
-  height: 7px;
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
+  padding: 0;
   margin-right: 5px;
   border: solid 1px #e2e2e2;
   background: #e2e2e2;
 }
-
+/* Should only need to add second class but it isn't adding in clsx */
 .review-carousel__round-btn:focus{
+  background: red;
+}
+
+.review-carousel__red-background{
   background: red;
 }

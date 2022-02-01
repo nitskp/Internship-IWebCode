@@ -5,6 +5,9 @@ import person2 from "../assets/imgs/persons-group-2.png";
 import ImageContainer from "./ImageContainer";
 import InfoCard from "./InfoCard";
 import "../css/FeatureSection.css";
+import {MdLayers} from "react-icons/md";
+import {MdOutlinePhonelink} from "react-icons/md"
+import {MdLocalMall} from "react-icons/md"
 
 const FeatureSection = (props) => {
   //data
@@ -13,9 +16,6 @@ const FeatureSection = (props) => {
     "Sapiente, assumenda suscipit autem ab expedita dignissimos, corrupti iusto nobis ex aperiam cumque reprehenderit, saepe culpa qui eos ullam minima quo, consequuntur.";
   const infoHeading2 = "Applications";
   const infoHeading3 = "eCommerce";
-  const layerIcon = "fas fa-layer-group fa-2x";
-  const phoneIcon = "fas fa-laptop fa-2x";
-  const bagIcon = "fas fa-shopping-bag fa-2x";
   const descriptionHeading = "Let's growth your business with us";
   const descriptionText =
     "Sapiente, assumenda suscipit autem ab expedita dignissimos, corrupti iusto nobis ex aperiam cumque reprehenderit, saepe culpa qui eos ullam minima quo, consequuntur.";
@@ -42,21 +42,34 @@ const FeatureSection = (props) => {
         <InfoCard
           infoHeading={infoHeading1}
           infoText={infoText}
-          infoIcon={layerIcon}
           isImage={false}
-        />
+          isReactIcon={true}
+          ReactIcon={
+          [<MdLayers />]
+          }
+        >
+        </InfoCard>
         <InfoCard
           infoHeading={infoHeading2}
           infoText={infoText}
-          infoIcon={phoneIcon}
           isImage={false}
-        />
+          isReactIcon={true}
+          ReactIcon={
+          [<MdOutlinePhonelink/>]
+          }
+        >
+        </InfoCard>
         <InfoCard
           infoHeading={infoHeading3}
           infoText={infoText}
-          infoIcon={bagIcon}
           isImage={false}
-        />
+          isReactIcon={true}
+          ReactIcon={
+            [<MdLocalMall/>]
+          }
+        >
+          
+        </InfoCard>
       </div>
 
       {/* <div className="feature-section">

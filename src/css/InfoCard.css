@@ -22,25 +22,23 @@
     margin-top: 10px;
 }
 
-/* .info__icon{
-    color: white;
-    margin-top: 50px;
+.info-card__icon-container span:first-child{
+    font-size: 40px;
 }
 
-.info__heading{
-    font-size: 25px;
-    color: white;
-    padding: 30px;
-    padding-bottom: 0;
-}
+@media (min-width:992px) {
+    .info-card{
+        display: flex;
+        flex-direction: row;
+    }
 
-.info__text{
-    font-size: 15px;
-    color: white;
-    opacity: 0.5;
-    margin: 0 25px;
+    .info-card__icon-container{
+        max-width: 15%;
+        margin-right: 20px;
+        text-align: center;
+        margin-top: 0;
+        padding: 0;
+        padding-right: 20px;
+        
+    }
 }
-
-.info{
-    padding-bottom: 20px;
-} */

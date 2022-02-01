@@ -9,10 +9,14 @@ const InfoCard = (props) => {
   const infoText = props.infoText;
   const infoIcon = props.infoIcon;
   const isImage = props.isImage;
+  const isReactIcon = props.isReactIcon;
+  const ReactIcon = props.ReactIcon;
+  console.log(ReactIcon);
   return (
     <div className="info-card">
       <div className="info-card__icon-container">
-        <InfoCardIcon isImage={isImage} infoIcon={infoIcon}/>
+        <InfoCardIcon isImage={isImage} infoIcon={infoIcon} isReactIcon={isReactIcon} ReactIcon={
+          ReactIcon}/>
       </div>
       <div className="info-card-info-conatiner">
         <h1 className="info-card__heading">{infoHeading}</h1>

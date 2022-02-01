@@ -7,8 +7,6 @@ const Video = props => {
       <iframe
             src= {videoUrl}
             className="video"
-            width="500px"
-            height="350px"
           ></iframe>
     </>
   )

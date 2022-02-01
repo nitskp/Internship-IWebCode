@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "../css/Navbar.css";
 import clsx from "clsx";
+import {AiOutlineMenu,AiOutlineClose} from "react-icons/ai"
 
 const Navbar = () => {
   const [isShown, setIsShown] = useState(false);
@@ -16,7 +17,7 @@ const Navbar = () => {
       </div>
       <div className="navbar__hamburger-icon-container">
         <button onClick={() => setIsShown(true)}>
-          <i className="fas fa-bars fa-2x"></i>
+          <AiOutlineMenu size='35px'/>
         </button>
       </div>
       <div
@@ -24,7 +25,7 @@ const Navbar = () => {
           "navbar__links--show": isShown,
         })}
       >
-        <button onClick={() => setIsShown(false)}>&#43;</button>
+        <button onClick={() => setIsShown(false)}><AiOutlineClose size="35px"/></button>
       </div>
 
       <ul className={clsx("navbar__links", { "navbar__links--show": isShown })}>

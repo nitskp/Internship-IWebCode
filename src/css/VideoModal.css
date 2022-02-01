@@ -1,12 +1,12 @@
 .video-modal{
     width: 80vw;
-    height: fit-content;
+    height: auto;
 }
 .video-modal button{
     position: relative;
     text-align: center;
     /* for time being let it be 200px. It should be 50%. Don't know why it isn't working. */
-    top: 200px;
+    top: 30vw;
     left: 30vw;
     font-size: 13px;
     background: white;
@@ -34,24 +34,37 @@
     z-index: 20;
 }
 
+.video-modal--show{
+    display: flex;
+    flex-direction: column;
+}
 
+/* why does using container hides the cross button  */
+ /* .video-modal__cross-button-container{
+    text-align: right;
+}  */
 
-.video-modal__content button{
-    position: absolute;
-    top: 0;
-    right: 0;
+.video-modal__video-container{
+    max-width: 80vw;
+    margin: 112px auto;
+    height: auto;
+
+}
+
+ .video-modal .video-modal__content .video-modal__cross-button-container button{
     color: white;
     background: transparent;
     border: transparent;
-    font-size: 30px;
-    margin-top: 40px;
-    margin-right: 40px;
-    margin-left: 900px;
-   
+    font-size: 30px; 
+    position: relative;
+    top: 10px;
+    left: 80%;
 }
 
 .video-modal__content .video{
     margin: 0 auto;
-    margin-top: 150px;
-    margin-left: 500px;
+    max-width: inherit;
+    width: 80vw;
+    height: 60vh;
+
 } 
