@@ -87,7 +87,6 @@ const ReviewCarousel = () => {
       </div>
       <div className="review-carousel__round-btn-container">
         <button
-        //why isn't the class review-carousel__red-background adding 
           className={clsx("review-carousel__round-btn", {
             "review-carousel__red-background": currentImg === 0,
           })}

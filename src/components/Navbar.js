@@ -8,7 +8,7 @@ const Navbar = () => {
   const [isShown, setIsShown] = useState(false);
   const [isClickedFirst, setIsClickedFirst] = useState(false);
   const [isClickedSecond, setIsClickedSecond] = useState(false);
-  // console.log(isClicked);
+
 
   return (
     <nav className="navbar">

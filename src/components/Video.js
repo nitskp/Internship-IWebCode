@@ -5,6 +5,7 @@ const Video = props => {
   return (
     <>
       <iframe
+          title='youtube-video'
             src= {videoUrl}
             className="video"
           ></iframe>

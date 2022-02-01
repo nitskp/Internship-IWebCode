@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import ImageContainer from "./ImageContainer";
 import Video from "./Video";
