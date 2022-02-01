@@ -1,10 +1,10 @@
-import React, { useEffect } from "react";
+import React, { useEffect,useState } from "react";
 import person1 from "../assets/imgs/person_1.jpg";
 import person2 from "../assets/imgs/person_2.jpg";
 import person3 from "../assets/imgs/person_3.jpg";
 import Review from "./Review";
 import "../css/ReviewCarousel.css";
-import { useState } from "react/cjs/react.development";
+// import {  } from "react/cjs/react.development";
 import clsx from "clsx";
 
 const ReviewCarousel = () => {

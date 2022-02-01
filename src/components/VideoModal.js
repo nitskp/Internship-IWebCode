@@ -1,10 +1,10 @@
-import React from "react";
+import React, {useState} from "react";
 import { Link } from "react-router-dom";
 import ImageContainer from "./ImageContainer";
 import Video from "./Video";
 import "../css/VideoModal.css";
 import heroMin from "../assets/imgs/hero-min.jpg";
-import { useState } from "react/cjs/react.development";
+// import { useState } from "react/cjs/react.development";
 import clsx from "clsx";
 
 const Modal = (props) => {

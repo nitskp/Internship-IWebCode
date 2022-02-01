@@ -140,12 +140,13 @@
     .why-us-section .video-modal .video-modal__btn img{
         width: 100%;
         height: auto;
+        margin-top: 5vw;
         margin-right: 0;
     }
 
     .why-us-section .video-modal button{
         position: relative;
-        top: 30%;
+        top: 50%;
         left: 40%;
     }
 
