@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import person1 from "../assets/imgs/person_1.jpg";
 import person2 from "../assets/imgs/person_2.jpg";
 import person3 from "../assets/imgs/person_3.jpg";
@@ -41,8 +41,8 @@ const ReviewCarousel = () => {
         <div className="review-carousel__content">
           <div
             className={clsx(
-              { "review-carousel__review-container": currentImg != 0 ,
-               "review-carousel--show": currentImg == 0 }
+              { "review-carousel__review-container": currentImg !== 0 ,
+               "review-carousel--show": currentImg === 0 }
             )}
           >
             <Review
@@ -54,8 +54,8 @@ const ReviewCarousel = () => {
           </div>
           <div
             className={clsx(
-              { "review-carousel__review-container": currentImg != 0 ,
-               "review-carousel--show": currentImg == 0 }
+              { "review-carousel__review-container": currentImg !== 0 ,
+               "review-carousel--show": currentImg === 0 }
             )}
           >
             <Review
@@ -67,8 +67,8 @@ const ReviewCarousel = () => {
           </div>
           <div
             className={clsx(
-              { "review-carousel__review-container": currentImg != 0 ,
-               "review-carousel--show": currentImg == 0 }
+              { "review-carousel__review-container": currentImg !== 0 ,
+               "review-carousel--show": currentImg === 0 }
             )}
           >
             <Review
@@ -93,19 +93,19 @@ const ReviewCarousel = () => {
         <button
         //why isn't the class review-carousel__red-background adding 
           className={clsx("review-carousel__round-btn", {
-            "review-carousel__red-background": currentImg == 0,
+            "review-carousel__red-background": currentImg === 0,
           })}
           onClick={() => setCurrentImg(0)}
         ></button>
         <button
           className={clsx("review-carousel__round-btn", {
-            "review-carousel__red-background": currentImg == 1,
+            "review-carousel__red-background": currentImg === 1,
           })}
           onClick={() => setCurrentImg(1)}
         ></button>
         <button
           className={clsx("review-carousel__round-btn",{
-            "review-carousel__red-background": currentImg == 2,
+            "review-carousel__red-background": currentImg === 2,
           })}
           onClick={() => setCurrentImg(2)}
         ></button>

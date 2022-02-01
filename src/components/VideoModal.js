@@ -26,7 +26,6 @@ const VideoModal = () => {
         <ImageContainer
           imageUrl={imageUrl}
           altText="hero-min-image"
-          // size={{ width: 732, height: 490 }}
         />
       </Link>
 

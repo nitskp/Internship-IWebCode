@@ -9,8 +9,8 @@ import {MdLayers} from "react-icons/md";
 import {MdOutlinePhonelink} from "react-icons/md"
 import {MdLocalMall} from "react-icons/md"
 
-const FeatureSection = (props) => {
-  //data
+const FeatureSection = () => {
+ 
   const infoHeading1 = "Design";
   const infoText =
     "Sapiente, assumenda suscipit autem ab expedita dignissimos, corrupti iusto nobis ex aperiam cumque reprehenderit, saepe culpa qui eos ullam minima quo, consequuntur.";
@@ -72,39 +72,7 @@ const FeatureSection = (props) => {
         </InfoCard>
       </div>
 
-      {/* <div className="feature-section">
-        <div className="feature-section__left-image">
-          <ImageContainer imageUrl={person1} altText="person1" />
-        </div>
-        <div className="feature-section__description">
-          <Description
-            descriptionHeading={descriptionHeading}
-            descriptionText={descriptionText}
-            buttonText={buttonText}
-          />
-        </div>
-        <div className="feature-section__right-image">
-          <ImageContainer imageUrl={person2} altText="person2" />
-        </div>
-      </div>
-
-      <div className="info-card">
-        <InfoCard
-          infoHeading={infoHeading1}
-          infoText={infoText}
-          infoIcon={layerIcon}
-        />
-        <InfoCard
-          infoHeading={infoHeading2}
-          infoText={infoText}
-          infoIcon={phoneIcon}
-        />
-        <InfoCard
-          infoHeading={infoHeading3}
-          infoText={infoText}
-          infoIcon={bagIcon}
-        />
-      </div> */}
+      
     </>
   );
 };

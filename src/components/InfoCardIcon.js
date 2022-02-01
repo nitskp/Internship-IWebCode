@@ -22,7 +22,6 @@ const InfoCardIcon = (props) => {
     
   }
   else{
-    const iconClassName = props.infoIcon
     return(
       <></>
     )

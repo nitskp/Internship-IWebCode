@@ -13,7 +13,6 @@ const BlogCard = (props) => {
       <ImageContainer
         imageUrl={blogCardImg}
         altText="Blog Post Image"
-        // size={{ width: 380, height: 330 }}
       />
       <div className="blog-card__info">
         <p className="blog-card__date">{blogCardDate}</p>
