@@ -25,3 +25,7 @@ body{
 .container {
   margin-bottom: 80px;
 }
+
+.wrapper{
+  overflow-x: hidden;
+}

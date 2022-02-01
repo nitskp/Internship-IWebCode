@@ -12,9 +12,13 @@ const ReviewCarousel = () => {
   const totalNoOfImgs = 3; //change upon total no.of images
 
   useEffect(()=>{
-    setTimeout(()=>{
+    const myTimeOut = setTimeout(()=>{
       setCurrentImg((currentImg+1)%totalNoOfImgs)
     },4000)
+
+    return ()=>{
+      clearTimeout(myTimeOut);
+    }
   })
 
   const reviewHeading = "Maria Jones";

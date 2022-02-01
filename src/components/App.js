@@ -10,7 +10,7 @@ import Footer from "./Footer";
 
 function App() {
   return (
-    <>
+    <div className="wrapper">
       <div className="blue">
           <Navbar />
           <FeatureSection />
@@ -22,7 +22,7 @@ function App() {
 
         <BlogPostSection />
         <Footer/> 
-    </>
+    </div>
   );
 }
 
