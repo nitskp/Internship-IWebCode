@@ -5,6 +5,7 @@
         margin: 0 auto;
         margin-top: 155px;
         display: flex;
+        overflow-x: hidden;
     }
     
     .feature-section__description{
@@ -23,14 +24,16 @@
         position: absolute;
         top: 160px;
         right: -140px;
-        width: 236px;
+        max-width: 236px;
         height: auto;
+        overflow-x: hidden;
     }
+
     
     .feature-section__info-card{
         background: #4D9180;
-        max-width: 720px;
-        margin: 0 14vw;
+        max-width: 90vw;
+        margin: 0 5vw;
         margin-top: 240px;
         padding: 50px;
         border-radius: 10px;

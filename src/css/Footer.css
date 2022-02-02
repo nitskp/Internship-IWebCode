@@ -1,11 +1,11 @@
 .footer{
     color: white;
-    padding: 112px 60px;
+    padding: 112px 5vw;
     background: black;
 }
 
 .footer__info{
-    margin: 20px 60px;
+    margin: 20px auto;
     margin-bottom: 60px;
 }
 

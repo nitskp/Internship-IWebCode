@@ -22,7 +22,7 @@
 
 
     .choose-section__img-container img {
-        max-width: 630px;
+        max-width: 65vw;
         height: auto;
     }
 }
