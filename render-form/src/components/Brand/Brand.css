@@ -1,0 +1,9 @@
+.img-container{
+    text-align: left;
+    margin: 0 5vw;
+    position: sticky;
+}
+.img-container img{
+    width: 205px;
+    height: 77px;
+}
