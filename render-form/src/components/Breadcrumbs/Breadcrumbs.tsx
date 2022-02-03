@@ -1,5 +1,6 @@
 import React, { Fragment } from "react";
 import Link from "../Link/Link";
+import './Breadcrumbs.css'
 
 const Breadcrumbs = (props: { links: string[] }) => {
   const links = props.links;
@@ -9,9 +10,9 @@ const Breadcrumbs = (props: { links: string[] }) => {
       {links.map((ele, indx) => {
         return (
           
-            <span key={"Breadcrumbs" + ele.toString()+ indx.toString()}>
+            <span key={"Breadcrumbs" + ele.toString()+ indx.toString()} className="breadcrumbs__item">
               <Link linkName={ele} />
-              {indx != links.length - 1 ? "/" : ""}
+              {indx != links.length - 1 ? " /" : ""}
             </span>
           
         );

@@ -1,0 +1,17 @@
+select{
+    background: #E2E2E2;
+    border: 1px solid;
+    padding: 4px 40px 4px 15px;
+    height: 40px;
+    font-size: 16px;
+    font-family: 'Lato',sans-serif;
+}
+
+select:hover{
+    background: #C0C0C0
+}
+
+option{
+    font-size: 16px;
+    font-family: 'Lato',sans-serif;
+}

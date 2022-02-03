@@ -1,9 +1,9 @@
 import React from 'react'
-
+import './Captcha.css'
 const Captcha = () => {
   return (
     <div className='captcha-container'>
-      Captcha - It's needs to be an embedd webpage.Use Iframe. Will do later.
+      Captcha - Will do later.
     </div>
   )
 }

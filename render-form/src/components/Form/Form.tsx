@@ -3,12 +3,13 @@ import { arrayBuffer } from "stream/consumers";
 import FormSection from "../FormSection/FormSection";
 import Captcha from "../Captcha/Captcha";
 import SubmitButton from "../SubmitButton/SubmitButton";
+import './Form.css'
 
 const Form = () => {
   let data: any[] = [
     {
       formHeading: "Submit Your Application",
-      
+
       isText: false,
       fields: [
         {
@@ -50,7 +51,7 @@ const Form = () => {
     },
     {
       formHeading: "Links",
-      
+
       isText: false,
       fields: [
         {
@@ -92,7 +93,7 @@ const Form = () => {
     },
     {
       formHeading: "PREFERRED PRONOUNS",
-       
+
       isText: false,
       fields: [
         {
@@ -104,7 +105,7 @@ const Form = () => {
     },
     {
       formHeading: "ADDITIONAL INFORMATION",
-       
+
       isText: false,
       fields: [
         {
@@ -115,72 +116,87 @@ const Form = () => {
     },
     {
       formHeading: "U.S. EQUAL EMPLOYMENT OPPORTUNITY INFORMATION",
-       
-      isText: false,
+
+      isText: true,
       textData: [
+        // "(Completion is voluntary and will not subject you to adverse treatment)", see a way to include this
+
+        "Our company values diversity. To ensure that we comply with reporting requirements and to learn more about how we can increase diversity in our candidate pool, we invite you to voluntarily provide demographic information in a confidential survey at the end of this application. Providing this information is optional. It will not be accessible or used in the hiring process, and has no effect on your opportunity for employment.",
+        ,
+      ],
+    },
+    {
+      formHeading: "",
+
+      isText: false,
+      fields: [
         {
-          data1:
-            "(Completion is voluntary and will not subject you to adverse treatment)",
-          data2:
-            "Our company values diversity. To ensure that we comply with reporting requirements and to learn more about how we can increase diversity in our candidate pool, we invite you to voluntarily provide demographic information in a confidential survey at the end of this application. Providing this information is optional. It will not be accessible or used in the hiring process, and has no effect on your opportunity for employment.",
+          // add special requirements for select
+          fieldName: "select",
+          name: "gender",
+          label: "Gender",
+          options: ["Male", "Female", "Decline to self Identify"],
+          placeHolder: "Select...",
+          isRequired: false,
         },
       ],
     },
     {
-        formHeading:"",
-         
-        isTextData:false,
-        fields:[
-            {
-                // add special requirements for select
-                fieldName: "input",
-                label: "Gender",
-                type: "select",
-                placeHolder: "Select...",
-                isRequired: false,
-              },
-        ]
+      formHeading: "",
+
+      isText: false,
+      fields: [
+        {
+          fieldName: "select",
+          name: "race",
+          label: "Race",
+          options: [
+            "Hispanic or Latino",
+            "White (Not Hispanic or Latino)",
+            "Black or African American (Not Hispanic or Latino)",
+            "Native Hawaiian or Other Pacific Islander (Not Hispanic or Latino)",
+            "Asian (Not Hispanic or Latino)",
+            "American Indian or Alaska Native (Not Hispanic or Latino)",
+            "Two or More Races (Not Hispanic or Latino)",
+            "Decline to self-identify"
+          ],
+          placeHolder: "Select...",
+          isRequired: false,
+        },
+      ],
     },
     {
-        formHeading:"",
-         
-        isTextData:false,
-        fields:[
-            {
-                fieldName: "input",
-                label: "Race",
-                type: "select",
-                placeHolder: "Select...",
-                isRequired: false,
-              },
-        ]
+      formHeading: "",
+      isText: false,
+      fields: [
+        {
+          fieldName: "select",
+          name: "veteran-status",
+          label: "Veteran Status",
+          options: [
+            "I am a veteran",
+            "I am not a veteran",
+            "Decline to self identify",
+          ],
+          placeHolder: "Select...",
+          isRequired: false,
+        },
+      ],
     },
-    {
-        formHeading:"",
-        isTextData:false,
-        fields:[
-            {
-                fieldName: "input",
-                label: "Veteran Status",
-                type: "select",
-                placeHolder: "Select...",
-                isRequired: false,
-              },
-        ]
-    }
   ];
 
   return (
     <div className="form-container">
       {data.map((ele, index) => (
         //pass the whole ele as a prop
-        <FormSection key={"Form" +ele.formHeading + index.toString() }
-        formSectionData={ele}
+        <FormSection
+          key={"Form" + ele.formHeading + index.toString()}
+          formSectionData={ele}
         />
       ))}
 
-<Captcha/>
-<SubmitButton/>
+      <Captcha />
+      <SubmitButton />
     </div>
   );
 };

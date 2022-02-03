@@ -1,5 +1,6 @@
 import React, { JSXElementConstructor, ReactElement } from "react";
 import { JsxElement } from "typescript";
+import './Heading.css'
 
 const Heading = (props: { name: string; type: string }) => {
   let headingElement = <></>;
@@ -8,24 +9,24 @@ const Heading = (props: { name: string; type: string }) => {
 
   switch (type) {
     case "h1": {
-      headingElement = <h1>{props.name}</h1>;
+      headingElement = <h1 role="heading">{props.name}</h1>;
 
       break;
     }
     case "h2": {
-      headingElement = <h2>{props.name}</h2>;
+      headingElement = <h2 role="heading">{props.name}</h2>;
       break;
     }
     case "h3": {
-      headingElement = <h3>{props.name}</h3>;
+      headingElement = <h3 role="heading">{props.name}</h3>;
       break;
     }
     case "h4": {
-      headingElement = <h4>{props.name}</h4>;
+      headingElement = <h4 role="heading">{props.name}</h4>;
       break;
     }
     case "h5": {
-      headingElement = <h5>{props.name}</h5>;
+      headingElement = <h5 role="heading">{props.name}</h5>;
       break;
     }
   }

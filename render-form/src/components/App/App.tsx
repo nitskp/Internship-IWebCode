@@ -4,6 +4,7 @@ import Brand from "../Brand/Brand";
 import Header from "../Header/Header";
 import Form from "../Form/Form";
 import Footer from "../Footer/Footer";
+import './App.css'
 
 import brandImage from '../../assets/imgs/brandImage.png'
 

@@ -1,9 +1,13 @@
 .img-container{
     text-align: left;
-    margin: 0 5vw;
     position: sticky;
+    top: 0;
+    background: white;
+    height: 110px;
 }
 .img-container img{
     width: 205px;
     height: 77px;
+    margin: 0 5vw;
+    margin-top: 20px;
 }

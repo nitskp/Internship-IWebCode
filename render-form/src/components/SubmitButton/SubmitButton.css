@@ -1,0 +1,15 @@
+.submit-button-container{
+    display: flex;
+    justify-content: center;
+}
+
+.submit-button-container input{
+    background: #4F65F1;
+    color: white;
+    text-transform: uppercase;
+    padding: 10px 15px;
+    font-size: 14px;
+    font-family: 'Lato',sans-serif;
+    margin: 17.5px 0;
+    border: solid 1px #4F65F1;
+}
