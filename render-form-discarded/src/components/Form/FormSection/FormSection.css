@@ -1,0 +1,19 @@
+
+
+.form-section-container{
+    margin-bottom: 100px;
+}
+
+.form-section-container h4 span{
+    font-size: 16px;
+    padding-left: 20px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    text-transform:initial;
+}
+
+@media (min-width:772px) {
+    .form-section-container{
+        margin: 0 10vw;
+    }
+}

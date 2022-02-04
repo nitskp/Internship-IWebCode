@@ -1,0 +1,10 @@
+.header{
+    display: flex;
+    flex-direction: column;
+    padding: 0 30px;
+}
+@media (min-width:772px) {
+    .header{
+        margin: 0 10vw;
+    }
+}

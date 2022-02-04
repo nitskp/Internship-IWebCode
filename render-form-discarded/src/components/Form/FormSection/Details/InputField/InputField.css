@@ -1,0 +1,19 @@
+
+
+.input-container{
+    display: flex;
+    flex-direction: column;
+}
+@media (min-width: 772px) {
+    .input-container{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+}
+
+.input-container--next-line input{
+    width: 70vw;
+}
