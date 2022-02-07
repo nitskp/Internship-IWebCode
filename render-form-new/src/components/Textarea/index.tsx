@@ -1,4 +1,4 @@
-import React from "react";
+
 import Teaxtarea from "./Teaxtarea";
 
 const index = (props: {

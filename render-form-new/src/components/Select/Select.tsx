@@ -18,8 +18,9 @@ const Select = (props: {
     <div className="select-container">
       <div className="select-box">
       <div className="label-container">
+        {/* Label  */}
         <label htmlFor={name}>{label}</label>
-        
+        {/* For putting info icon next to Race  */}
         {name === "race" ? (
           <span onClick={() => setShowInfo(!showInfo)}>
             <svg
@@ -37,8 +38,9 @@ const Select = (props: {
           <></>
         )}
       </div>
-
+          {/* Select  */}
       <select id={name} {...register(registerValue)}>
+        {/* for first default option  */}
         <option key={selectId + "-1"} value="">
           {"Select..."}
         </option>
@@ -52,7 +54,7 @@ const Select = (props: {
         })}
       </select>
       </div>
-      
+      {/* For adding info about all the options in 'race' select's case */}
       {name === "race" ? (
         <div
           className={clsx({

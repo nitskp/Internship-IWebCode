@@ -1,8 +1,0 @@
-const HEADINGS = [
-    "SUBMIT YOUR APPLICATION",
-    "LINKS",
-    "PREFERRED PRONOUNS",
-    "ADDITIONAL INFORMATION",
-  ];
-
-  export default HEADINGS

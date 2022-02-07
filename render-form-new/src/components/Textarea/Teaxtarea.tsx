@@ -12,7 +12,9 @@ const Teaxtarea = (props: {
   // console.log(registerValue,' : ',watch(registerValue))
   return (
     <div className='textarea-container'>
+      {/* Label  */}
       <label htmlFor={name}>{label}</label>
+      {/* Textarea  */}
       <textarea
         // name={name}
         id={name}

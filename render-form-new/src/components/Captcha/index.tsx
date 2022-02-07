@@ -1,4 +1,4 @@
-import React from 'react'
+
 import Captcha from './Captcha'
 
 const index = () => {

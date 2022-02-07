@@ -6,15 +6,14 @@ import Form from "../Form";
 function App() {
   return (
     <div className="app">
+      {/* Brand Image  */}
       <div className="brand">
         <div className="brand-image-container">
-        <img src={brandImg} alt="brandImg" className="brand-img" />
+          <img src={brandImg} alt="brandImg" className="brand-img" />
         </div>
-          
-        </div>
+      </div>
+      {/* Header  */}
       <header className="app-header">
-        
-
         <h2>Full-Stack Engineer</h2>
         <div className="breadcrumbs">
           <span>Remote Optional /</span>
@@ -22,7 +21,10 @@ function App() {
           <span>FULL-TIME</span>
         </div>
       </header>
+      {/* Form  */}
       <Form />
+
+      {/* Footer  */}
       <footer className="app-footer">
         <div className="footer__link-container">
           <a href="#">Render Home Page</a>
