@@ -10,4 +10,4 @@ There were a lot of problems in it. Some of them are:
 2. Don't try to make code too much dynamic. Only use it when necessary, otherwise too many bugs occur and time waste away. 
 
 ### Comments
-Didn't like the directory structure of nesting components inside components. It doesn't look pleasing and is a lot of time wastes away.
+Didn't like the directory structure of nesting components inside components. It doesn't look pleasing and a lot of time wastes away.
