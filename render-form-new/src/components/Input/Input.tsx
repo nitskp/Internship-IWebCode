@@ -1,6 +1,49 @@
 import clsx from "clsx";
 import "./Input.css";
-import { useForm } from "react-hook-form";
+import { Path, UseFormRegister } from "react-hook-form";
+
+enum Gender {
+  male = "male",
+  female = "female",
+  decline = "decline to self identify",
+}
+
+enum Race {
+  hispanic = "Hispanic or Latino",
+  white = "White (Not Hispanic or Latino)",
+  black = "Black or African American (Not Hispanic or Latino)",
+  hawaiian = "Native Hawaiian or Other Pacific Islander (Not Hispanic or Latino)",
+  asian = "Asian (Not Hispanic or Latino)",
+  american = "American Indian or Alaska Native (Not Hispanic or Latino)",
+  mixed = "Two or More Races (Not Hispanic or Latino)",
+  decline = "Decline to self-identify",
+}
+
+enum Veteran {
+  veteran = "I am a veteran",
+  notVeteran = "I am not a veteran",
+  decline = "Decline to self identify",
+}
+
+type Inputs = {
+  resumeCV: string;
+  fullName: string;
+  email: string;
+  phone: string;
+  company: string;
+  linkedInUrl: string;
+  twitterUrl: string;
+  githubUrl: string;
+  portfolioUrl: string;
+  otherWebsite: string;
+  pronouns: string;
+  additionalInfo:string;
+  gender: Gender;
+  race: Race;
+  veteran: Veteran;
+}
+
+
 
 const Input = (props: {
   label: string;
@@ -8,11 +51,13 @@ const Input = (props: {
   type: string;
   placeHolder: string;
   validations: any;
-  registerValue:string;
+  registerValue:Path<Inputs>;
+  register:UseFormRegister<Inputs>
 }) => {
-  const{register, watch} = useForm();
-  const { label, isRequired, type, placeHolder, registerValue } = props;
+  
+  const { label, isRequired, type, placeHolder, validations,registerValue, register } = props;
   // console.log(label, ':',watch(registerValue))
+  console.log(validations);
   return (
     <div className="input-container">
       {/* Label  */}
@@ -22,7 +67,7 @@ const Input = (props: {
       
       {type !== "file" ? (
         // for all input other than type == file
-        <input type={type} placeholder={placeHolder} id={label} {...register(registerValue)} />
+        <input type={type} placeholder={placeHolder} id={label} {...register(registerValue,validations)} />
       ) : (
         // For type==file input 
         // For attaching clip image and accompanying text
@@ -38,7 +83,7 @@ const Input = (props: {
             Attach Resume/CV
           </span>
           {/* Input type == file tag  */}
-          <input type={type} placeholder={placeHolder} id={label} {...register(registerValue)}/>
+          <input type={type} placeholder={placeHolder} id={label} {...register(registerValue,{required:isRequired})}/>
         </div>
       )}
     </div>

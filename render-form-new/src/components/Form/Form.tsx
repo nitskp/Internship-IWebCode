@@ -41,17 +41,16 @@ interface Inputs {
   portfolioUrl: string;
   otherWebsite: string;
   pronouns: string;
+  additionalInfo: string;
   gender: Gender;
   race: Race;
   veteran: Veteran;
 }
 
 const Form = () => {
-  const {
-    handleSubmit,
-    formState: { errors },
-  } = useForm<Inputs>();
+  const { register, handleSubmit } = useForm<Inputs>();
   const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
+
   return (
     <form className="form-container" onSubmit={handleSubmit(onSubmit)}>
       {/*Application submit section of the form */}
@@ -64,8 +63,13 @@ const Form = () => {
           type={"file"}
           isRequired={true}
           placeHolder={""}
-          validations={null}
+          validations={{
+            validate: {
+              lessThan5Mb: (file: { size: number; }[]) =>file[0].size < 500000,
+              acceptedFormat: (file: { type: string; }[]) => file[0].type === "application/pdf",}
+          }}
           registerValue={"resumeCV"}
+          register={register}
         />
         {/* Input Field */}
         <Input
@@ -73,8 +77,9 @@ const Form = () => {
           type={"text"}
           isRequired={true}
           placeHolder={""}
-          validations={null}
+          validations={{ minLength: 10 }}
           registerValue={"fullName"}
+          register={register}
         />
         {/* Input Field */}
         <Input
@@ -82,8 +87,9 @@ const Form = () => {
           type={"email"}
           isRequired={true}
           placeHolder={""}
-          validations={null}
+          validations={{ pattern: /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/ }}
           registerValue={"email"}
+          register={register}
         />
         {/* Input Field */}
         <Input
@@ -91,8 +97,9 @@ const Form = () => {
           type={"tel"}
           isRequired={false}
           placeHolder={""}
-          validations={null}
+          validations={{}}
           registerValue={"phone"}
+          register={register}
         />
         {/* Input Field */}
         <Input
@@ -100,8 +107,9 @@ const Form = () => {
           type={"text"}
           isRequired={false}
           placeHolder={""}
-          validations={null}
+          validations={{}}
           registerValue={"company"}
+          register={register}
         />
       </div>
 
@@ -115,8 +123,9 @@ const Form = () => {
           type={"url"}
           isRequired={false}
           placeHolder={""}
-          validations={null}
+          validations={{ pattern: /^https:\/\/www.linkedin.com\/.*$/ }}
           registerValue={"linkedInUrl"}
+          register={register}
         />
         {/* Input Field */}
         <Input
@@ -124,8 +133,9 @@ const Form = () => {
           type={"url"}
           isRequired={false}
           placeHolder={""}
-          validations={null}
+          validations={{}}
           registerValue={"twitterUrl"}
+          register={register}
         />
         {/* Input Field */}
         <Input
@@ -133,8 +143,9 @@ const Form = () => {
           type={"url"}
           isRequired={false}
           placeHolder={""}
-          validations={null}
+          validations={{}}
           registerValue={"githubUrl"}
+          register={register}
         />
         {/* Input Field */}
         <Input
@@ -142,8 +153,9 @@ const Form = () => {
           type={"url"}
           isRequired={false}
           placeHolder={""}
-          validations={null}
+          validations={{}}
           registerValue={"portfolioUrl"}
+          register={register}
         />
         {/* Input Field */}
         <Input
@@ -151,8 +163,9 @@ const Form = () => {
           type={"url"}
           isRequired={false}
           placeHolder={""}
-          validations={null}
+          validations={{}}
           registerValue={"otherWebsite"}
+          register={register}
         />
       </div>
 
@@ -168,8 +181,9 @@ const Form = () => {
           type={"text"}
           isRequired={false}
           placeHolder={"Type your response"}
-          validations={null}
+          validations={{}}
           registerValue={"pronouns"}
+          register={register}
         />
       </div>
 
@@ -180,7 +194,10 @@ const Form = () => {
           name="textarea"
           placeHolder="Add a cover letter or anything else you want to share"
           label=""
-         registerValue='additionalInfo'/>
+          registerValue="additionalInfo"
+          register={register}
+          validations={{ minLength: 30 }} // need to work on accepting it empty too
+        />
       </div>
 
       {/* Form Section US Employment  */}
@@ -210,6 +227,8 @@ const Form = () => {
           name={"gender"}
           options={["Male", "Female", "Decline to self Identify"]}
           registerValue={"gender"}
+          register={register}
+          isRequired={true}
         />
         {/* Race Select Field  */}
         <Select
@@ -227,6 +246,8 @@ const Form = () => {
             "Decline to self-identify",
           ]}
           registerValue={"race"}
+          register={register}
+          isRequired={false}
         />
         {/* Veteran Status Field  */}
         <Select
@@ -238,7 +259,9 @@ const Form = () => {
             "I am not a veteran",
             "Decline to self identify",
           ]}
-          registerValue={"veteranStatus"}
+          registerValue={"veteran"}
+          register={register}
+          isRequired={false}
         />
       </div>
       {/* Captcha Component  */}
