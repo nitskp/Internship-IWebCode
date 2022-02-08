@@ -1,13 +1,18 @@
 .select-container{
     display: flex;
     flex-direction: column;
+    padding: 17.5px 0;
 }
+
+
 
 .select-container select{
     background: #e2e2e2;
     border: 1px solid #e2e2e2;
     border-radius: 3px;
-    max-width: 100%;
+    margin: 17.5px 0;
+    max-width: 456px;
+    width: 90%;
     padding: 4px 40px 4px 15px;
     height: 40px;
     appearance: none;
@@ -23,7 +28,15 @@
     background-size: 30px 30px;
     background-repeat: no-repeat;
     background-position: right 10px top 5px;
+    border: 1px solid #e2e2e2;
+    border-radius: 3px;
     /* border: 1px solid #e2e2e2; */
+}
+
+@media (max-width:800px) {
+    .select-container select{
+        max-width: 90vw;
+    }
 }
 
 .options__details{

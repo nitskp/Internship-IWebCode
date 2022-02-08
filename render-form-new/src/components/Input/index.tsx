@@ -1,5 +1,5 @@
 
-import { Path, UseFormRegister } from "react-hook-form";
+import { FieldErrors, Path, UseFormRegister } from "react-hook-form";
 import Input from "./Input";
 
 enum Gender {
@@ -26,7 +26,7 @@ enum Veteran {
 }
 
 interface Inputs {
-  resumeCV: string;
+  resumeCV: FileList;
   fullName: string;
   email: string;
   phone: string;
@@ -48,10 +48,11 @@ const index = (props: {
   label: string;
   isRequired: boolean;
   type: string;
-  placeHolder: string;
+  placeHolder?: string;
   validations: any;
   registerValue: Path<Inputs>,
-  register:UseFormRegister<Inputs>
+  register:UseFormRegister<Inputs>,
+  errors:FieldErrors<Inputs>
 }) => {
   return (
     <Input
@@ -62,6 +63,8 @@ const index = (props: {
       validations={props.validations}
       registerValue={props.registerValue}
       register={props.register}
+      errors={props.errors}
+     
     />
   );
 };

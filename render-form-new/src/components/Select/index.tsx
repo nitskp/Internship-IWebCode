@@ -1,4 +1,4 @@
-import { Path, UseFormRegister } from "react-hook-form";
+import { FieldErrors, Path, UseFormRegister } from "react-hook-form";
 import Select from "./Select";
 
 enum Gender {
@@ -25,7 +25,7 @@ enum Veteran {
 }
 
 type Selects = {
-  resumeCV: string;
+  resumeCV: FileList;
   fullName: string;
   email: string;
   phone: string;
@@ -50,7 +50,7 @@ const index = (props: {
   options: string[];
   registerValue:Path<Selects>;
   register:UseFormRegister<Selects>
-  isRequired:boolean
+  errors:FieldErrors<Selects>
 
 }) => {
   return (
@@ -61,7 +61,7 @@ const index = (props: {
       options={props.options}
       registerValue={props.registerValue}
       register={props.register}
-      isRequired={true}
+      errors={props.errors}
     />
   );
 };

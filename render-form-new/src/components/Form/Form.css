@@ -5,7 +5,11 @@
 
 .form-section-container{
     max-width: 760px;
-    margin: 0 auto;
+    margin: 20px auto;
+}
+
+.form-section-container h4{
+    margin: 40px 0;
 }
 
 .submit-button-container {

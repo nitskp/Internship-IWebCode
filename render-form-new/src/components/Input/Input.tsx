@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import "./Input.css";
-import { Path, UseFormRegister } from "react-hook-form";
+import { FieldErrors, Path, UseFormRegister } from "react-hook-form";
 
 enum Gender {
   male = "male",
@@ -26,7 +26,7 @@ enum Veteran {
 }
 
 type Inputs = {
-  resumeCV: string;
+  resumeCV: FileList;
   fullName: string;
   email: string;
   phone: string;
@@ -37,39 +37,78 @@ type Inputs = {
   portfolioUrl: string;
   otherWebsite: string;
   pronouns: string;
-  additionalInfo:string;
+  additionalInfo: string;
   gender: Gender;
   race: Race;
   veteran: Veteran;
-}
-
-
+};
 
 const Input = (props: {
   label: string;
   isRequired: boolean;
   type: string;
-  placeHolder: string;
+  placeHolder?: string;
   validations: any;
-  registerValue:Path<Inputs>;
-  register:UseFormRegister<Inputs>
+  registerValue: Path<Inputs>;
+  register: UseFormRegister<Inputs>;
+  errors: FieldErrors<Inputs>;
 }) => {
-  
-  const { label, isRequired, type, placeHolder, validations,registerValue, register } = props;
+  const {
+    label,
+    isRequired,
+    type,
+    placeHolder,
+    validations,
+    registerValue,
+    register,
+    errors,
+  } = props;
   // console.log(label, ':',watch(registerValue))
-  console.log(validations);
+  // console.log("Input Errors : ", errors);
+  // console.log(validations);
+  let errorDisplay = <></>;
+  if (errors.fullName && registerValue === "fullName") {
+    errors.fullName.message = "Enter at least 10 characters";
+    errorDisplay = <p>{errors.fullName.message}</p>;
+  } else if (errors.email && registerValue === "email") {
+    errors.email.message = "Enter a valid email";
+    errorDisplay = <p>{errors.email.message}</p>;
+  } else if (errors.phone && registerValue === "phone") {
+    errors.phone.message = "Enter a valid phone number with country code";
+    errorDisplay = <p>{errors.phone.message}</p>;
+  } else if (errors.resumeCV && registerValue === "resumeCV") {
+    errors.resumeCV.message =
+      "File size should be less than 5 Mb and of type pdf";
+    errorDisplay = <p>{errors.resumeCV.message}</p>;
+  } else if (errors.linkedInUrl && registerValue === "linkedInUrl") {
+    errors.linkedInUrl.message = "Enter valid url";
+    errorDisplay = <p>{errors.linkedInUrl.message}</p>;
+  } else if (errors.githubUrl && registerValue === "githubUrl") {
+    errors.githubUrl.message = "Enter valid url";
+    errorDisplay = <p>{errors.githubUrl.message}</p>;
+  } else if (errors.twitterUrl && registerValue === "twitterUrl") {
+    errors.twitterUrl.message = "Enter valid url";
+    errorDisplay = <p>{errors.twitterUrl.message}</p>;
+  }
   return (
     <div className="input-container">
       {/* Label  */}
       <label htmlFor={label} className={clsx({ "is-required": isRequired })}>
         {label}
       </label>
-      
+      {/* Error Message  */}
+      {errorDisplay}
+
       {type !== "file" ? (
         // for all input other than type == file
-        <input type={type} placeholder={placeHolder} id={label} {...register(registerValue,validations)} />
+        <input
+          type={type}
+          placeholder={placeHolder}
+          id={label}
+          {...register(registerValue, validations)}
+        />
       ) : (
-        // For type==file input 
+        // For type==file input
         // For attaching clip image and accompanying text
         <div className="file-container">
           {/* Clip Image  */}
@@ -79,11 +118,15 @@ const Input = (props: {
             </svg>
           </span>
           {/* Accompanying Text  */}
-          <span className="text">
-            Attach Resume/CV
-          </span>
+          <span className="text">Attach Resume/CV</span>
           {/* Input type == file tag  */}
-          <input type={type} placeholder={placeHolder} id={label} {...register(registerValue,{required:isRequired})}/>
+          <input
+            type={type}
+            placeholder={placeHolder}
+            id={label}
+            {...register(registerValue, validations)}
+            
+          />
         </div>
       )}
     </div>

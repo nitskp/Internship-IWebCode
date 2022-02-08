@@ -18,7 +18,7 @@ input{
 
 input[type='file']{
     
-    opacity: 0.5;
+    opacity: 0;
     position: absolute;
     left: 0;
 }
@@ -52,6 +52,10 @@ input[type='file']{
     opacity: 0.45;
     font-size: 15px;
 
+}
+
+.input-container p{
+    color: red;
 }
 
 @media (min-width:800px) {

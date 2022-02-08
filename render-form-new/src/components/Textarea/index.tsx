@@ -1,5 +1,5 @@
 
-import { Path, UseFormRegister } from "react-hook-form";
+import { FieldErrors, Path, UseFormRegister } from "react-hook-form";
 import Teaxtarea from "./Teaxtarea";
 
 enum Gender {
@@ -26,7 +26,7 @@ enum Veteran {
 }
 
 type Textareas = {
-  resumeCV: string;
+  resumeCV: FileList;
   fullName: string;
   email: string;
   phone: string;
@@ -51,6 +51,7 @@ const index = (props: {
   registerValue: Path<Textareas>;
   register: UseFormRegister<Textareas>;
   validations:any;
+  errors:FieldErrors<Textareas>
 }) => {
   return (
     <Teaxtarea
@@ -60,6 +61,7 @@ const index = (props: {
       registerValue={props.registerValue}
       register={props.register}
       validations={props.validations}
+      errors={props.errors}
     />
   );
 };

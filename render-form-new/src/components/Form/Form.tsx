@@ -1,10 +1,18 @@
 import Select from "../Select";
 import "./Form.css";
+import { initializeApp } from "firebase/app";
+import { getFirestore, collection, addDoc } from 'firebase/firestore/lite';
+import {getStorage, ref, uploadBytes} from 'firebase/storage'
 
-import Captcha from "../Captcha";
+// import { getAnalytics } from "firebase/analytics";
+// import { getFirestore } from "firebase/firestore";
+// import { collection, addDoc } from "firebase/firestore";
+
+import Captcha from "../Captcha/Captcha";
 import Input from "../Input";
 import { SubmitHandler, useForm } from "react-hook-form";
 import Teaxtarea from "../Textarea";
+import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
 
 enum Gender {
   male = "male",
@@ -30,7 +38,7 @@ enum Veteran {
 }
 
 interface Inputs {
-  resumeCV: string;
+  resumeCV: FileList;
   fullName: string;
   email: string;
   phone: string;
@@ -48,9 +56,72 @@ interface Inputs {
 }
 
 const Form = () => {
-  const { register, handleSubmit } = useForm<Inputs>();
-  const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
+  // Use form hook
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<Inputs>();
 
+  // Dummy for testing
+  // const onSubmit: SubmitHandler<Inputs> = data => {
+  //   console.log(data);}
+  
+
+  
+
+  
+
+
+  //  FIREBASE DATA SUBMIT
+  const firebaseConfig = {
+    apiKey: "AIzaSyAUoBrhcXf2TyL9rjXJnHCxM-j9T0sQwo8",
+    authDomain: "render-form.firebaseapp.com",
+    projectId: "render-form",
+    storageBucket: "render-form.appspot.com",
+    messagingSenderId: "623895579983",
+    appId: "1:623895579983:web:caf33f382026a6e5b8493a",
+    measurementId: "G-5CETP3MHQ5",
+  };
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+// Submit Handler
+  const onSubmit: SubmitHandler<Inputs> = async (data) => {
+    // Changing file ref so that this can upload
+    const file = data.resumeCV[0];
+    const storage = getStorage();
+    // console.log('Webkit Path', file.name)
+    const storageRef = ref(storage,'file/'+file.name);
+    uploadBytes(storageRef, file).then(()=>console.log('File Upload'))
+    
+    const firebaseData = {
+        additionalInfo: data.additionalInfo,
+        company :data.company,
+        email: data.email,
+        fullName: data.fullName,
+        gender: data.gender,
+        githubUrl:data.githubUrl,
+        linkedInUrl:data.linkedInUrl,
+        otherWebsite:data.otherWebsite,
+        phone: data.phone,
+        portfolioUrl: data.portfolioUrl,
+        pronouns: data.pronouns,
+        race: data.race,
+        twitterUrl: data.twitterUrl,
+        veteran: data.veteran
+    };
+    try{
+      const docRef = await addDoc(collection(db,'users'), firebaseData);
+      console.log('Document written with ID :', docRef.id);
+    } catch(e){
+      console.error('Error adding document: ', e);
+    }
+  };
+  
+  
+  
+  
+  
   return (
     <form className="form-container" onSubmit={handleSubmit(onSubmit)}>
       {/*Application submit section of the form */}
@@ -58,18 +129,23 @@ const Form = () => {
         {/* Section Heading */}
         <h4>SUBMIT YOUR APPLICATION</h4>
         {/* Input Field */}
+        {/* Validations not working for file field  and problem with firebase*/}
         <Input
           label={"Resume/CV"}
           type={"file"}
           isRequired={true}
           placeHolder={""}
           validations={{
+            required: true,
             validate: {
-              lessThan5Mb: (file: { size: number; }[]) =>file[0].size < 500000,
-              acceptedFormat: (file: { type: string; }[]) => file[0].type === "application/pdf",}
+              lessThan5Mb: (file: { size: number }[]) => file[0].size < 5e6,
+              acceptedFormat: (file: { type: string }[]) =>
+                file[0].type === "application/pdf",
+            },
           }}
           registerValue={"resumeCV"}
           register={register}
+          errors={errors}
         />
         {/* Input Field */}
         <Input
@@ -77,9 +153,10 @@ const Form = () => {
           type={"text"}
           isRequired={true}
           placeHolder={""}
-          validations={{ minLength: 10 }}
+          validations={{ required: true, minLength: 10 }}
           registerValue={"fullName"}
           register={register}
+          errors={errors}
         />
         {/* Input Field */}
         <Input
@@ -87,9 +164,14 @@ const Form = () => {
           type={"email"}
           isRequired={true}
           placeHolder={""}
-          validations={{ pattern: /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/ }}
+          validations={{
+            required: true,
+            pattern: /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/,
+          }}
           registerValue={"email"}
           register={register}
+          errors={errors}
+          
         />
         {/* Input Field */}
         <Input
@@ -97,9 +179,10 @@ const Form = () => {
           type={"tel"}
           isRequired={false}
           placeHolder={""}
-          validations={{}}
+          validations={{ pattern: /\+91\d{10}/ }} // only for india here
           registerValue={"phone"}
           register={register}
+          errors={errors}
         />
         {/* Input Field */}
         <Input
@@ -110,6 +193,7 @@ const Form = () => {
           validations={{}}
           registerValue={"company"}
           register={register}
+          errors={errors}
         />
       </div>
 
@@ -126,6 +210,7 @@ const Form = () => {
           validations={{ pattern: /^https:\/\/www.linkedin.com\/.*$/ }}
           registerValue={"linkedInUrl"}
           register={register}
+          errors={errors}
         />
         {/* Input Field */}
         <Input
@@ -133,9 +218,10 @@ const Form = () => {
           type={"url"}
           isRequired={false}
           placeHolder={""}
-          validations={{}}
+          validations={{ pattern: /^https:\/\/twitter.com\/.*$/ }}
           registerValue={"twitterUrl"}
           register={register}
+          errors={errors}
         />
         {/* Input Field */}
         <Input
@@ -143,9 +229,10 @@ const Form = () => {
           type={"url"}
           isRequired={false}
           placeHolder={""}
-          validations={{}}
+          validations={{ pattern: /^https:\/\/github.com\/.*$/ }}
           registerValue={"githubUrl"}
           register={register}
+          errors={errors}
         />
         {/* Input Field */}
         <Input
@@ -156,6 +243,7 @@ const Form = () => {
           validations={{}}
           registerValue={"portfolioUrl"}
           register={register}
+          errors={errors}
         />
         {/* Input Field */}
         <Input
@@ -166,6 +254,7 @@ const Form = () => {
           validations={{}}
           registerValue={"otherWebsite"}
           register={register}
+          errors={errors}
         />
       </div>
 
@@ -184,6 +273,7 @@ const Form = () => {
           validations={{}}
           registerValue={"pronouns"}
           register={register}
+          errors={errors}
         />
       </div>
 
@@ -196,7 +286,8 @@ const Form = () => {
           label=""
           registerValue="additionalInfo"
           register={register}
-          validations={{ minLength: 30 }} // need to work on accepting it empty too
+          validations={{ minLength: 30 }}
+          errors={errors}
         />
       </div>
 
@@ -228,7 +319,7 @@ const Form = () => {
           options={["Male", "Female", "Decline to self Identify"]}
           registerValue={"gender"}
           register={register}
-          isRequired={true}
+          errors={errors}
         />
         {/* Race Select Field  */}
         <Select
@@ -247,7 +338,7 @@ const Form = () => {
           ]}
           registerValue={"race"}
           register={register}
-          isRequired={false}
+          errors={errors}
         />
         {/* Veteran Status Field  */}
         <Select
@@ -261,11 +352,14 @@ const Form = () => {
           ]}
           registerValue={"veteran"}
           register={register}
-          isRequired={false}
+          errors={errors}
         />
       </div>
       {/* Captcha Component  */}
+      <GoogleReCaptchaProvider reCaptchaKey="6Lc1bWUeAAAAANQmgH1ob5pHVVlSqCRE77zysO0A">
       <Captcha />
+      </GoogleReCaptchaProvider>
+     
       {/* Submit Button  */}
       <div className="submit-button-container">
         <input type="submit" value="Submit Application" />

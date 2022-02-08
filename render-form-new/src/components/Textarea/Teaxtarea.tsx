@@ -1,4 +1,4 @@
-import { Path, useForm, UseFormRegister } from 'react-hook-form';
+import { FieldErrors, Path, UseFormRegister } from 'react-hook-form';
 import './Textarea.css'
 
 enum Gender {
@@ -25,7 +25,7 @@ enum Veteran {
 }
 
 type Textareas = {
-  resumeCV: string;
+  resumeCV: FileList;
   fullName: string;
   email: string;
   phone: string;
@@ -50,14 +50,23 @@ const Teaxtarea = (props: {
   registerValue:Path<Textareas>;
   register:UseFormRegister<Textareas>
   validations:any
+  errors:FieldErrors<Textareas>
 }) => {
   // const {register, watch} = useForm();
-  const { name, placeHolder, label,registerValue,register, validations } = props;
+  const { name, placeHolder, label,registerValue,register, validations, errors } = props;
+  // console.log("errors : ", errors.additionalInfo)
   // console.log(registerValue,' : ',watch(registerValue))
+  let errorDisplay = <></>
+  if(errors.additionalInfo){
+    errors.additionalInfo.message = 'Enter at least 30 characters';
+    errorDisplay = <p>{errors.additionalInfo.message}</p>
+  }
   return (
     <div className='textarea-container'>
       {/* Label  */}
       <label htmlFor={name}>{label}</label>
+      {/* Error Message  */}
+      {errorDisplay}
       {/* Textarea  */}
       <textarea
         // name={name}
