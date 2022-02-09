@@ -9,6 +9,7 @@ Used for making Input field
 5. registerValue:strings,
 6. validations:Object(eg - {required: true, max: 10, min: 10 etc…})
 7. errors: Path< Inputs>
+8. watch?: UseFormWatch< Inputs>
 ## Component Name : Select
 Used for making Select Field
 ### Props:

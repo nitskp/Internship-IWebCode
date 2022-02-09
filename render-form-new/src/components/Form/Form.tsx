@@ -62,6 +62,7 @@ const Form = () => {
     handleSubmit,
     formState: { errors,isSubmitSuccessful },
     reset,
+    watch
   } = useForm<Inputs>();
 
   const [isCaptchaClicked, setIsCaptchaClicked] = useState(false);
@@ -149,6 +150,7 @@ const Form = () => {
           registerValue={"resumeCV"}
           register={register}
           errors={errors}
+          watch={watch}
         />
         {/* Input Field */}
         <Input

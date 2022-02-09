@@ -1,7 +1,6 @@
 import clsx from "clsx";
 import "./Input.css";
-import { FieldErrors, Path, UseFormRegister } from "react-hook-form";
-import { useState } from "react";
+import { FieldErrors, Path, UseFormRegister, UseFormWatch } from "react-hook-form";
 
 enum Gender {
   male = "male",
@@ -52,6 +51,7 @@ const Input = (props: {
   registerValue: Path<Inputs>;
   register: UseFormRegister<Inputs>;
   errors: FieldErrors<Inputs>;
+  watch?:UseFormWatch<Inputs>
 }) => {
   const {
     label,
@@ -61,20 +61,23 @@ const Input = (props: {
     registerValue,
     register,
     errors,
+    watch
   } = props;
 
   // Change file name upon choosing it
 
-  const [fileName, setFileName] = useState("Attach Resume/CV");
-
-  const onChange = (e: any) => {
-    const file = e.target.files[0].name;
-    setFileName(file);
-  };
-
-  const onReset = (e: any) => {
-    setFileName("Attach Resume/CV");
-  };
+  // const [fileUploaded, setFileUploaded] = useState(false);
+  let fileName = '';
+  let file:any;
+  if(watch){
+    file = watch(registerValue);
+  }
+   
+  //   if(file!==undefined){
+  //     console.log(file[0].name)
+  //     fileName=file[0].name;
+  //   }
+  // } 
 
   // For all Input error display
   let errorDisplay = <></>;
@@ -132,7 +135,7 @@ const Input = (props: {
             </svg>
           </span>
           {/* Accompanying Text  */}
-          <span className="text">{fileName}</span>
+          <span className="text">{file?file[0].name:'Attach Resume/CV'}</span>
           {/* Input type == file tag  */}
           <input
             type={type}
@@ -140,8 +143,6 @@ const Input = (props: {
             id={label}
             {...register(registerValue, validations)}
             accept="application/pdf"
-            onChange={onChange}
-            onReset={onReset}
           />
         </div>
       )}
