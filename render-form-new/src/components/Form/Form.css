@@ -35,3 +35,13 @@
 .form-container .pronouns input{
     width: 80vw;
 }
+
+.captcha-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.captcha-container p{
+    color: red;
+}

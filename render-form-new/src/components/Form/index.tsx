@@ -1,9 +1,1 @@
-import Form from './Form'
-
-const index = () => {
-  return (
-    <Form />
-  )
-}
-
-export default index
+export {default as Form} from './Form';

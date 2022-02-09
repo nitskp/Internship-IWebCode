@@ -1,18 +1,13 @@
-import Select from "../Select";
-import "./Form.css";
 import { initializeApp } from "firebase/app";
-import { getFirestore, collection, addDoc } from 'firebase/firestore/lite';
-import {getStorage, ref, uploadBytes} from 'firebase/storage'
-
-// import { getAnalytics } from "firebase/analytics";
-// import { getFirestore } from "firebase/firestore";
-// import { collection, addDoc } from "firebase/firestore";
-
-import Captcha from "../Captcha/Captcha";
-import Input from "../Input";
+import { getFirestore, collection, addDoc } from "firebase/firestore/lite";
+import { getStorage, ref, uploadBytes } from "firebase/storage";
+import { Select } from "../Select";
+import { Input } from "../Input";
+import { Textarea } from "../Textarea";
+import "./Form.css";
 import { SubmitHandler, useForm } from "react-hook-form";
-import Teaxtarea from "../Textarea";
-import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
+import { useEffect, useState } from "react";
+import ReCAPTCHA from "react-google-recaptcha";
 
 enum Gender {
   male = "male",
@@ -56,22 +51,26 @@ interface Inputs {
 }
 
 const Form = () => {
+
+  const onChange = () => {
+    setIsCaptchaClicked(true);
+    setShowCaptchaError(false);
+  }
   // Use form hook
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors,isSubmitSuccessful },
+    reset,
   } = useForm<Inputs>();
 
-  // Dummy for testing
-  // const onSubmit: SubmitHandler<Inputs> = data => {
-  //   console.log(data);}
-  
+  const [isCaptchaClicked, setIsCaptchaClicked] = useState(false);
+  const [showCaptchaError,setShowCaptchaError] = useState(false);
 
-  
-
-  
-
+  useEffect(()=>{
+    if(isSubmitSuccessful)
+    reset()
+  },[isSubmitSuccessful,reset])
 
   //  FIREBASE DATA SUBMIT
   const firebaseConfig = {
@@ -85,45 +84,48 @@ const Form = () => {
   };
   const app = initializeApp(firebaseConfig);
   const db = getFirestore(app);
-// Submit Handler
+  // Submit Handler
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
-    // Changing file ref so that this can upload
-    const file = data.resumeCV[0];
-    const storage = getStorage();
-    // console.log('Webkit Path', file.name)
-    const storageRef = ref(storage,'file/'+file.name);
-    uploadBytes(storageRef, file).then(()=>console.log('File Upload'))
-    
-    const firebaseData = {
+    if (isCaptchaClicked) {
+      // Changing file ref so that this can upload
+      const file = data.resumeCV[0];
+      const storage = getStorage();
+      const storageRef = ref(storage, "file/" + file.name);
+      uploadBytes(storageRef, file).then(() => console.log("File Upload"));
+      // Storing rest of the data in another object
+      const firebaseData = {
         additionalInfo: data.additionalInfo,
-        company :data.company,
+        company: data.company,
         email: data.email,
         fullName: data.fullName,
         gender: data.gender,
-        githubUrl:data.githubUrl,
-        linkedInUrl:data.linkedInUrl,
-        otherWebsite:data.otherWebsite,
+        githubUrl: data.githubUrl,
+        linkedInUrl: data.linkedInUrl,
+        otherWebsite: data.otherWebsite,
         phone: data.phone,
         portfolioUrl: data.portfolioUrl,
         pronouns: data.pronouns,
         race: data.race,
         twitterUrl: data.twitterUrl,
-        veteran: data.veteran
-    };
-    try{
-      const docRef = await addDoc(collection(db,'users'), firebaseData);
-      console.log('Document written with ID :', docRef.id);
-    } catch(e){
-      console.error('Error adding document: ', e);
+        veteran: data.veteran,
+      };
+      // Submitted data to firebase
+      try {
+        const docRef = await addDoc(collection(db, "users"), firebaseData);
+        console.log("Document written with ID :", docRef.id);
+      } catch (e) {
+        console.error("Error adding document: ", e);
+      }
+      alert("form submitted");
+      setIsCaptchaClicked(false);
+    } else {
+      setShowCaptchaError(true);
     }
   };
-  
-  
-  
-  
-  
+
   return (
     <form className="form-container" onSubmit={handleSubmit(onSubmit)}>
+      
       {/*Application submit section of the form */}
       <div className="form-section-container">
         {/* Section Heading */}
@@ -133,7 +135,6 @@ const Form = () => {
         <Input
           label={"Resume/CV"}
           type={"file"}
-          isRequired={true}
           placeHolder={""}
           validations={{
             required: true,
@@ -151,7 +152,6 @@ const Form = () => {
         <Input
           label={"Full name"}
           type={"text"}
-          isRequired={true}
           placeHolder={""}
           validations={{ required: true, minLength: 10 }}
           registerValue={"fullName"}
@@ -162,7 +162,6 @@ const Form = () => {
         <Input
           label={"Email"}
           type={"email"}
-          isRequired={true}
           placeHolder={""}
           validations={{
             required: true,
@@ -171,13 +170,11 @@ const Form = () => {
           registerValue={"email"}
           register={register}
           errors={errors}
-          
         />
         {/* Input Field */}
         <Input
           label={"Phone"}
           type={"tel"}
-          isRequired={false}
           placeHolder={""}
           validations={{ pattern: /\+91\d{10}/ }} // only for india here
           registerValue={"phone"}
@@ -188,7 +185,6 @@ const Form = () => {
         <Input
           label={"Current Company"}
           type={"text"}
-          isRequired={false}
           placeHolder={""}
           validations={{}}
           registerValue={"company"}
@@ -205,7 +201,6 @@ const Form = () => {
         <Input
           label={"LinkedIn URL"}
           type={"url"}
-          isRequired={false}
           placeHolder={""}
           validations={{ pattern: /^https:\/\/www.linkedin.com\/.*$/ }}
           registerValue={"linkedInUrl"}
@@ -216,7 +211,6 @@ const Form = () => {
         <Input
           label={"Twitter URL"}
           type={"url"}
-          isRequired={false}
           placeHolder={""}
           validations={{ pattern: /^https:\/\/twitter.com\/.*$/ }}
           registerValue={"twitterUrl"}
@@ -227,7 +221,6 @@ const Form = () => {
         <Input
           label={"GitHub URL"}
           type={"url"}
-          isRequired={false}
           placeHolder={""}
           validations={{ pattern: /^https:\/\/github.com\/.*$/ }}
           registerValue={"githubUrl"}
@@ -238,7 +231,6 @@ const Form = () => {
         <Input
           label={"Portfolio URL"}
           type={"url"}
-          isRequired={false}
           placeHolder={""}
           validations={{}}
           registerValue={"portfolioUrl"}
@@ -249,7 +241,6 @@ const Form = () => {
         <Input
           label={"Other Website"}
           type={"url"}
-          isRequired={false}
           placeHolder={""}
           validations={{}}
           registerValue={"otherWebsite"}
@@ -268,7 +259,6 @@ const Form = () => {
         <Input
           label={""}
           type={"text"}
-          isRequired={false}
           placeHolder={"Type your response"}
           validations={{}}
           registerValue={"pronouns"}
@@ -280,7 +270,7 @@ const Form = () => {
       {/* Additional Information FormSection  */}
       <div className="form-section-container">
         <h4>ADDITIONAL INFORMATION</h4>
-        <Teaxtarea
+        <Textarea
           name="textarea"
           placeHolder="Add a cover letter or anything else you want to share"
           label=""
@@ -319,7 +309,6 @@ const Form = () => {
           options={["Male", "Female", "Decline to self Identify"]}
           registerValue={"gender"}
           register={register}
-          errors={errors}
         />
         {/* Race Select Field  */}
         <Select
@@ -338,7 +327,6 @@ const Form = () => {
           ]}
           registerValue={"race"}
           register={register}
-          errors={errors}
         />
         {/* Veteran Status Field  */}
         <Select
@@ -352,18 +340,22 @@ const Form = () => {
           ]}
           registerValue={"veteran"}
           register={register}
-          errors={errors}
         />
       </div>
-      {/* Captcha Component  */}
-      <GoogleReCaptchaProvider reCaptchaKey="6Lc1bWUeAAAAANQmgH1ob5pHVVlSqCRE77zysO0A">
-      <Captcha />
-      </GoogleReCaptchaProvider>
-     
+      {/* Captcha  */}
+      <div className="captcha-container">
+        <ReCAPTCHA
+          sitekey="6LeMN2keAAAAABtNO4pSKFyCoEdqjAOXojYKKEEo"
+          onChange={onChange}
+        />
+        {showCaptchaError?<p>Captcha not clicked</p>:<></>}
+      </div>
+      {/* <input type='reset' value='reserfields'/> */}
       {/* Submit Button  */}
       <div className="submit-button-container">
         <input type="submit" value="Submit Application" />
       </div>
+      {/* {isSubmitted?reset():console.log('Not reset')} */}
     </form>
   );
 };

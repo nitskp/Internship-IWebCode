@@ -1,6 +1,7 @@
 import clsx from "clsx";
 import "./Input.css";
 import { FieldErrors, Path, UseFormRegister } from "react-hook-form";
+import { useState } from "react";
 
 enum Gender {
   male = "male",
@@ -45,7 +46,6 @@ type Inputs = {
 
 const Input = (props: {
   label: string;
-  isRequired: boolean;
   type: string;
   placeHolder?: string;
   validations: any;
@@ -55,7 +55,6 @@ const Input = (props: {
 }) => {
   const {
     label,
-    isRequired,
     type,
     placeHolder,
     validations,
@@ -63,9 +62,21 @@ const Input = (props: {
     register,
     errors,
   } = props;
-  // console.log(label, ':',watch(registerValue))
-  // console.log("Input Errors : ", errors);
-  // console.log(validations);
+
+  // Change file name upon choosing it
+
+  const [fileName, setFileName] = useState("Attach Resume/CV");
+
+  const onChange = (e: any) => {
+    const file = e.target.files[0].name;
+    setFileName(file);
+  };
+
+  const onReset = (e: any) => {
+    setFileName("Attach Resume/CV");
+  };
+
+  // For all Input error display
   let errorDisplay = <></>;
   if (errors.fullName && registerValue === "fullName") {
     errors.fullName.message = "Enter at least 10 characters";
@@ -93,7 +104,10 @@ const Input = (props: {
   return (
     <div className="input-container">
       {/* Label  */}
-      <label htmlFor={label} className={clsx({ "is-required": isRequired })}>
+      <label
+        htmlFor={label}
+        className={clsx({ "is-required": validations.required })}
+      >
         {label}
       </label>
       {/* Error Message  */}
@@ -118,14 +132,16 @@ const Input = (props: {
             </svg>
           </span>
           {/* Accompanying Text  */}
-          <span className="text">Attach Resume/CV</span>
+          <span className="text">{fileName}</span>
           {/* Input type == file tag  */}
           <input
             type={type}
             placeholder={placeHolder}
             id={label}
             {...register(registerValue, validations)}
-            
+            accept="application/pdf"
+            onChange={onChange}
+            onReset={onReset}
           />
         </div>
       )}

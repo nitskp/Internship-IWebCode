@@ -51,15 +51,11 @@ const Select = (props: {
   options: string[];
   registerValue: Path<Selects>;
   register: UseFormRegister<Selects>;
-  errors: FieldErrors<Selects>;
 }) => {
   // const {register,watch} = useForm();
   const [showInfo, setShowInfo] = useState(false);
-  const { selectId, name, label, options, registerValue, register, errors } =
+  const { selectId, name, label, options, registerValue, register } =
     props;
-  // console.log(label,':',watch(registerValue));
-  // console.log(" Select errors : ", errors);
-  // errors.message = 'Select the correct option'
   return (
     <div className="select-container">
       <div className="select-box">

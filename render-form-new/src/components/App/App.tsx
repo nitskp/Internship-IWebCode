@@ -1,7 +1,7 @@
 import "./App.css";
 import brandImg from "../../assets/imgs/render-logo.png";
 import leverLogo from "../../assets/imgs/lever-logo-full.svg";
-import Form from "../Form";
+import {Form} from "../Form";
 
 function App() {
   return (

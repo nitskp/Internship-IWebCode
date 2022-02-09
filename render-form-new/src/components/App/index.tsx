@@ -1,9 +1,1 @@
-import App from './App'
-
-const index = () => {
-  return (
-    <App />
-  )
-}
-
-export default index
+export {default as App} from './App'
