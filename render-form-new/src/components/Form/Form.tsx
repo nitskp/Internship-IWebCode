@@ -68,8 +68,10 @@ const Form = () => {
   const [showCaptchaError,setShowCaptchaError] = useState(false);
 
   useEffect(()=>{
-    if(isSubmitSuccessful)
+    if(isSubmitSuccessful){
+      setIsCaptchaClicked(false)
     reset()
+    }
   },[isSubmitSuccessful,reset])
 
   //  FIREBASE DATA SUBMIT
