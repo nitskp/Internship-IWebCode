@@ -27,7 +27,7 @@ function App() {
       {/* Footer  */}
       <footer className="app-footer">
         <div className="footer__link-container">
-          <a href="#">Render Home Page</a>
+          <a href="https://www.google.com/">Render Home Page</a>
         </div>
         <div className="footer__content">
           Jobs powered by

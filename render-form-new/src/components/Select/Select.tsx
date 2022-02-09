@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import { useState } from "react";
-import { FieldErrors, Path, UseFormRegister } from "react-hook-form";
+import { Path, UseFormRegister } from "react-hook-form";
 import "./Select.css";
 
 enum Gender {
