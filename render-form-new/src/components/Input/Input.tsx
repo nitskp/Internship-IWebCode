@@ -67,7 +67,7 @@ const Input = (props: {
   // Change file name upon choosing it
 
   // const [fileUploaded, setFileUploaded] = useState(false);
-  let fileName = '';
+  
   let file:any;
   if(watch){
     file = watch(registerValue);
