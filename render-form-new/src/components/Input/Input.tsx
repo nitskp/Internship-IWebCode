@@ -135,7 +135,7 @@ const Input = (props: {
             </svg>
           </span>
           {/* Accompanying Text  */}
-          <span className="text">{file?file[0].name:'Attach Resume/CV'}</span>
+          <span className="text">{file?file[0]?file[0].name:'Attach Resume/CV':'Attach Resume/CV'}</span>
           {/* Input type == file tag  */}
           <input
             type={type}

@@ -22,6 +22,10 @@
     background-position: right 10px top 5px;
 }
 
+select:focus-visible{
+    outline: #e2e2e2;
+}
+
 .select-container select:hover{
     background: #c0c0c0;
     background-image: url("https://img.icons8.com/ios/50/000000/expand-arrow--v2.png");

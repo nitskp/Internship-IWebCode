@@ -7,6 +7,10 @@
     height: 130px;
 }
 
+textarea:focus-visible{
+    outline: #e2e2e2;
+}
+
 .textarea-container p{
     color: red;
 }
