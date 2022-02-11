@@ -1,0 +1,47 @@
+.form-container {
+    padding: 0 30px;
+    background: #f9f9f9;
+}
+
+.form-section-container{
+    max-width: 760px;
+    margin: 20px auto;
+}
+
+.form-section-container h4{
+    margin: 40px 0;
+}
+
+.submit-button-container {
+    text-align: center;
+    margin-bottom: 80px;
+    padding: 20px 0;
+}
+
+.submit-button-container input {
+    background: #4f65f1;
+    color: white;
+    font-size: 14px;
+    padding: 10px 15px;
+    margin: 17.5px 0;
+    text-transform: uppercase;
+    max-width: 214px;
+}
+
+.form-container .pronouns label {
+    display: none;
+}
+
+.form-container .pronouns input{
+    width: 80vw;
+}
+
+.captcha-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.captcha-container p{
+    color: red;
+}

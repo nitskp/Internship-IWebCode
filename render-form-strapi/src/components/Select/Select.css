@@ -1,0 +1,101 @@
+.select-container{
+    display: flex;
+    flex-direction: column;
+    padding: 17.5px 0;
+}
+
+
+
+.select-container select{
+    background: #e2e2e2;
+    border: 1px solid #e2e2e2;
+    border-radius: 3px;
+    margin: 17.5px 0;
+    max-width: 456px;
+    width: 90%;
+    padding: 4px 40px 4px 15px;
+    height: 40px;
+    appearance: none;
+    background-image: url("https://img.icons8.com/ios/50/000000/expand-arrow--v2.png");
+    background-size: 30px 30px;
+    background-repeat: no-repeat;
+    background-position: right 10px top 5px;
+}
+
+select:focus-visible{
+    outline: #e2e2e2;
+}
+
+.select-container select:hover{
+    background: #c0c0c0;
+    background-image: url("https://img.icons8.com/ios/50/000000/expand-arrow--v2.png");
+    background-size: 30px 30px;
+    background-repeat: no-repeat;
+    background-position: right 10px top 5px;
+    border: 1px solid #e2e2e2;
+    border-radius: 3px;
+    /* border: 1px solid #e2e2e2; */
+}
+
+@media (max-width:800px) {
+    .select-container select{
+        max-width: 90vw;
+    }
+}
+
+.options__details{
+    display: none;
+}
+
+.options__details--show{
+    display: flex;
+}
+
+.race__info{
+    margin: 0;
+    padding: 0;
+    margin-top: 10px;
+}
+
+.race__info h5{
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+    font-weight: 400;
+}
+
+.race__info p{
+    font-size: 12px;
+    margin: 0;
+    padding: 0;
+    color: #555659;
+}
+
+.label-container{
+    margin: 17.5px 0;
+    vertical-align: middle;
+}
+.label-container span{
+    margin-left: 10px;
+    opacity: 0.5;
+}
+
+@media (min-width:800px) {
+    .select-container{
+        display: flex;
+        flex-direction: column;
+        
+    }
+    .select-box{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+    label{
+        width: 210px;
+    }
+    select{
+        width: 60%;
+    }
+}
