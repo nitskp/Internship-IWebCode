@@ -1,6 +1,3 @@
-// import { initializeApp } from "firebase/app";
-// import { getFirestore, collection, addDoc } from "firebase/firestore/lite";
-// import { getStorage, ref, uploadBytes } from "firebase/storage";
 import { Select } from "../Select";
 import { Input } from "../Input";
 import { Textarea } from "../Textarea";
@@ -76,71 +73,74 @@ const Form = () => {
 
   // Submit Handler
   const onSubmit: SubmitHandler<Inputs> = async (formData) => {
-    // const user = {
-    //   identifier: 'nitskp',
-    //   password: 'nitin1996'
-    // };
-    const user = new FormData();
-    user.append("identifier", "nitinkpandey4@gmail.com");
-    user.append("password", "Nitin1996");
+    if (isCaptchaClicked) {
+      const user = new FormData();
+      user.append("identifier", "nitinkpandey4@gmail.com");
+      user.append("password", "Thisisthepassword");
 
-    let  file: File = formData.resumeCV[0];
-    console.log('file:', file);
-    const fileData = new FormData();
-    // fileData.append("file", file.name)
-    fileData.append('nitin', 'testappend');
+      let file: File = formData.resumeCV[0];
+      console.log("file:", file);
+      const fileData = new FormData();
+      fileData.append("files", file);
 
-    console.log("File Data: ", fileData);
-    const newData = {
-      fullName: formData.fullName,
-      email: formData.email,
-      phone: formData.phone,
-      company: formData.company,
-      linkedInUrl: formData.linkedInUrl,
-      twitterUrl: formData.twitterUrl,
-      githubUrl: formData.githubUrl,
-      portfolioUrl: formData.portfolioUrl,
-      otherWebsite: formData.otherWebsite,
-      pronoun: formData.pronouns,
-      additionalInfo: formData.additionalInfo,
-      gender: formData.gender,
-      race: formData.race,
-      veteran: formData.veteran,
-    };
-    const apiKeyObject = await fetch("http://localhost:1337/api/auth/local", {
-      body: user,
-      method: "POST",
-    }).then((res) => res.json());
+      console.log("File Data Get all: ", fileData.getAll("files"));
 
-    let jwt = apiKeyObject.jwt;
-    console.log("jwt", jwt);
+      const apiKeyObject = await fetch("http://localhost:1337/api/auth/local", {
+        body: user,
+        method: "POST",
+      }).then((res) => res.json());
 
-    // const fileRef = await fetch("http://localhost:1337/api/upload/", {
-    //   method: "POST",
-    //   body: JSON.stringify(fileData),
-    //   headers: {
-    //     Authorization: "Bearer " + jwt,
-    //   },
-    // })
-    //   .then((res) => res.json())
-    //   .catch((err) => console.log("Error", err));
+      let jwt = apiKeyObject.jwt;
+      console.log("jwt", jwt);
 
-    // console.log("fileRef", fileRef);
+      const fileRef = await fetch("http://localhost:1337/api/upload/", {
+        method: "POST",
+        body: fileData,
+        headers: {
+          Authorization: "Bearer " + jwt,
+        },
+      })
+        .then((res) => res.json())
+        .catch((err) => console.log("Error", err));
 
-    // .then((resdata) => {
-    //   const sendData = new FormData();
-    //   sendData.append("data", JSON.stringify(newData))
-    //   return fetch("http://localhost:1337/api/forms", {
-    //     method: "POST",
-    //     body: sendData,
-    //     headers: {
-    //       Authorization: 'Bearer ' + resdata.jwt,
-    //     },
-    //   });
-    // })
-    // .then(res=>res.json())
-    // .then(data=>console.log('Data at api :', data))
-    // .catch((err) => console.log("Error", err));
+      console.log("fileRef url", fileRef);
+
+      const newData = {
+        fullName: formData.fullName,
+        email: formData.email,
+        resumeCV: fileRef[0],
+        phone: formData.phone,
+        company: formData.company,
+        linkedInUrl: formData.linkedInUrl,
+        twitterUrl: formData.twitterUrl,
+        githubUrl: formData.githubUrl,
+        portfolioUrl: formData.portfolioUrl,
+        otherWebsite: formData.otherWebsite,
+        pronoun: formData.pronouns,
+        additionalInfo: formData.additionalInfo,
+        gender: formData.gender,
+        race: formData.race,
+        veteran: formData.veteran,
+      };
+
+      const sentData = new FormData();
+      sentData.append("data", JSON.stringify(newData));
+      await fetch("http://localhost:1337/api/forms", {
+        method: "POST",
+        body: sentData,
+        headers: {
+          Authorization: "Bearer " + jwt,
+        },
+      })
+        .then((res) => res.json())
+        .then((data) => console.log("Data at api :", data))
+        .catch((err) => console.log("Error", err));
+    }
+      else{
+        console.log('Click the captcha first');
+        setShowCaptchaError(true);
+      }
+    
   };
 
   return (
