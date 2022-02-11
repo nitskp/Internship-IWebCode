@@ -36,4 +36,4 @@ Used as a container for form
 No props for it
 
 # Strapi
-The server used for strapi is hosted at my computer. So, it won't work other places.
+The server used for strapi is hosted at my computer. So, it won't work at other places.
